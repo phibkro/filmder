@@ -6,11 +6,17 @@ import Root from "./pages/root.tsx";
 import ErrorPage from "./pages/error-page.tsx";
 import "./styles/global.css";
 
+import CarouselPage from "./pages/testing/carouselPage.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/carousel",
+    element: <CarouselPage />,
   },
 ]);
 const queryClient = new QueryClient();
