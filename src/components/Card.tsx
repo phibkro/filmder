@@ -1,11 +1,19 @@
+import { useState } from "react";
 import { MovieResult } from "../utils/types";
 
 interface CardProps {
   result: MovieResult;
-  imageSize: PosterSize;
+  imageSize: BackdropSizes;
 }
-type PosterSize = "original" | "w300" | "w780" | "w1280";
-export default function Card({ result, imageSize }: CardProps) {
+type BackdropSizes = "original" | "w300" | "w780" | "w1280";
+export default function Card({
+  result,
+  imageSize,
+}: CardProps) {
+  const [isFavorite, setIsFavorite] = useState(false);
+  function toggleFavorite() {
+      setIsFavorite(!isFavorite);
+  }
   return (
     <div className="card">
       <img
@@ -13,6 +21,10 @@ export default function Card({ result, imageSize }: CardProps) {
         alt={"Poster for the movie" + result.title}
         width={300}
       />
+      <p onClick={toggleFavorite}>
+        {isFavorite && "unfavourite"}
+        {!isFavorite && "favorite"}
+      </p>
     </div>
   );
 }
