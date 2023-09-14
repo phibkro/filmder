@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+
+import Carousel from "../components/Carousel";
 import "../styles/root.css";
 
 function Root() {
@@ -6,7 +8,7 @@ function Root() {
     queryKey: ["movies"],
     queryFn: async () => {
       const response = await fetch(
-        "https://api.themoviedb.org/3/authentication",
+        "https://api.themoviedb.org/3/movie/popular",
         {
           method: "GET",
           headers: {
@@ -28,6 +30,8 @@ function Root() {
       {/*@ts-ignore*/}
       {isError && <span>Error: {error.message}</span>}
       <p>{data?.status_message}</p>
+
+      {data && <Carousel results={data?.results} />}
     </>
   );
 }
