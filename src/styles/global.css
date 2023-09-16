@@ -99,6 +99,19 @@ nav {
   display: flex;
   justify-content: space-around;
 }
+/* Carousel */
+.carousel {
+  display: flex;
+  align-items: center;
+}
+/* Film list */
+.filmList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
 /* Card */
 .card {
   display: flex;
@@ -106,10 +119,9 @@ nav {
   align-items: center;
   gap: 0.5em;
 }
-/* Carousel */
-.carousel {
-  display: flex;
-  align-items: center;
+.card img:hover {
+  outline: var(--foreground) 2px solid;
+  cursor: pointer;
 }
 /* Button */
 button {
