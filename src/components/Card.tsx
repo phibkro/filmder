@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { MovieResult } from "../utils/types";
 import { Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface CardProps {
   result: MovieResult;
+  href: string;
   size?: "small" | "medium" | "large";
 }
-export default function Card({ result, size = "medium" }: CardProps) {
+export default function Card({ result, href, size = "medium" }: CardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
   function toggleFavorite() {
     setIsFavorite(!isFavorite);
@@ -30,11 +32,14 @@ export default function Card({ result, size = "medium" }: CardProps) {
   }
   return (
     <div className="card">
-      <img
-        src={"https://image.tmdb.org/t/p/" + "original" + result.poster_path}
-        alt={"Poster for the movie" + result.title}
-        width={imgWidth}
-      />
+      <Link to={href}>
+        <img
+          src={"https://image.tmdb.org/t/p/" + "original" + result.poster_path}
+          alt={"Poster for the movie" + result.title}
+          width={imgWidth}
+        />
+      </Link>
+
       <Star
         size={starSize}
         className={isFavorite ? "fill hover star" : "hover star"}

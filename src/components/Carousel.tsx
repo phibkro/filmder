@@ -30,7 +30,11 @@ export default function Carousel({ results }: CarouselProps) {
         className="hover"
         onClick={decrementCurrentResult}
       />
-      <Card size="large" result={results[currentResult]} />
+      <Card
+        href={"/movies/" + results[currentResult].id}
+        size="large"
+        result={results[currentResult]}
+      />
       <ChevronRight
         size={"3.5em"}
         className="hover"
