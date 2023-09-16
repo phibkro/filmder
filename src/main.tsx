@@ -6,6 +6,7 @@ import Root from "./pages/root.tsx";
 import ErrorPage from "./pages/error-page.tsx";
 import "./styles/global.css";
 import { ThemeProvider } from "./features/theming/themeProvider.tsx";
+import ThemeTesting from "./pages/testing/theme.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/test/theme",
+    element: <ThemeTesting />
+  }
 ]);
 const queryClient = new QueryClient();
 
