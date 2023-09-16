@@ -1,8 +1,7 @@
 import { useState } from "react";
-
-import { MovieResult } from "../utils/types";
-
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Card from "./Card";
+import { MovieResult } from "../utils/types";
 
 interface CarouselProps {
   results: MovieResult[];
@@ -26,9 +25,17 @@ export default function Carousel({ results }: CarouselProps) {
   }
   return (
     <div className="carousel">
-      <p onClick={decrementCurrentResult}>Left</p>
-      <Card imageSize="w1280" result={results[currentResult]} />
-      <p onClick={incrementCurrentResult}>Right</p>
+      <ChevronLeft
+        size={"3.5em"}
+        className="hover"
+        onClick={decrementCurrentResult}
+      />
+      <Card size="large" result={results[currentResult]} />
+      <ChevronRight
+        size={"3.5em"}
+        className="hover"
+        onClick={incrementCurrentResult}
+      />
     </div>
   );
 }

@@ -1,30 +1,45 @@
 import { useState } from "react";
 import { MovieResult } from "../utils/types";
+import { Star } from "lucide-react";
 
 interface CardProps {
   result: MovieResult;
-  imageSize: BackdropSizes;
+  size?: "small" | "medium" | "large";
 }
-type BackdropSizes = "original" | "w300" | "w780" | "w1280";
-export default function Card({
-  result,
-  imageSize,
-}: CardProps) {
+export default function Card({ result, size = "medium" }: CardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
   function toggleFavorite() {
-      setIsFavorite(!isFavorite);
+    setIsFavorite(!isFavorite);
+    console.log(isFavorite);
+  }
+  let imgWidth = 200;
+  let starSize = "3.5em";
+  switch (size) {
+    case "small":
+      imgWidth = 125;
+      starSize = "1.5em";
+      break;
+    case "medium":
+      imgWidth = 225;
+      starSize = "2.5em";
+      break;
+    case "large":
+      imgWidth = 325;
+      starSize = "3.5em";
+      break;
   }
   return (
     <div className="card">
       <img
-        src={"https://image.tmdb.org/t/p/" + imageSize + result.poster_path}
+        src={"https://image.tmdb.org/t/p/" + "original" + result.poster_path}
         alt={"Poster for the movie" + result.title}
-        width={300}
+        width={imgWidth}
       />
-      <p onClick={toggleFavorite}>
-        {isFavorite && "unfavourite"}
-        {!isFavorite && "favorite"}
-      </p>
+      <Star
+        size={starSize}
+        className={isFavorite ? "fill hover star" : "hover star"}
+        onClick={toggleFavorite}
+      />
     </div>
   );
 }
