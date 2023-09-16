@@ -5,6 +5,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import Root from "./pages/root.tsx";
 import ErrorPage from "./pages/error-page.tsx";
 import "./styles/global.css";
+import { ThemeProvider } from "./features/theming/themeProvider.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,9 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );
