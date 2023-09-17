@@ -1,6 +1,6 @@
 import { ThemeToggle } from "../../features/theming/themeToggle";
 
-export default function ThemeTesting() {
+export default function ThemeTest() {
   return (
     <main>
       <h1>Hello world</h1>

@@ -4,7 +4,7 @@ import { useNumberStore } from "../../hooks/useNumberStore";
 import Carousel from "../../components/Carousel";
 import Card from "../../components/Card";
 
-export default function TestMoviePage() {
+export default function FrontpageTest() {
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["movies"],
     queryFn: async () => {

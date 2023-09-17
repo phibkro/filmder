@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNumberStore } from "../../hooks/useNumberStore";
 
-export default function TESTLocalStoragePage() {
+export default function LocalStorageTest() {
   const [input, setInput] = useState(0);
   const [numberStore, addToStore, removeFromStore, clearStore] =
     useNumberStore("favorites");
