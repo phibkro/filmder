@@ -21,12 +21,17 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/test/movie-page",
-    element: <TestMoviePage />,
-  },
-  {
-    path: "/test/local-storage",
-    element: <TESTLocalStoragePage />,
+    path: "/test",
+    children: [
+      {
+        path: "movie-page",
+        element: <TestMoviePage />,
+      },
+      {
+        path: "local-storage",
+        element: <TESTLocalStoragePage />,
+      },
+    ],
   },
 ]);
 const queryClient = new QueryClient();
