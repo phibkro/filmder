@@ -22,7 +22,6 @@ export default function FrontpageTest() {
         {/*TODO: fix ts error error*/}
         {/*@ts-ignore*/}
         {isError && <span>Error: {error.message}</span>}
-        {data && <p>{data?.status_message}</p>}
 
         {data && <Carousel results={data?.results} />}
 
