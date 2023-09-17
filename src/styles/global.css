@@ -92,10 +92,16 @@ body {
   fill: var(--foreground);
 }
 /* Layout styles */
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2em;
 }
 /* Component styles */
 /* Nav */
