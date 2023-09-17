@@ -4,7 +4,11 @@ import viteConfig from "./vite.config";
 export default mergeConfig(
   viteConfig,
   defineConfig({
+    define: {
+      "import.meta.vitest": "undefined",
+    },
     test: {
+      includeSource: ["src/**/*.{js,ts}"],
       coverage: {
         provider: "v8",
         reporter: ["text"],
