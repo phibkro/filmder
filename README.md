@@ -4,10 +4,10 @@ It is a project by uni students studying informatics.
 It utilizes modern web technologies like React, TypeScript, Vite, Vitest and TanStack query.
 
 ## Roadmap
-- Carousel to quickly flip through currently popular movies
+- ~~Carousel to quickly flip through currently popular movies~~
 - Favorite list to scroll through your favorite movies
 - Detailed movie page to read about your selected movie
-- Togglable light/dark mode switch
+- ~~Togglable light/dark mode switch~~
 
 # Prosjektbeskrivelse
 ## Tema for prosjektet
@@ -38,7 +38,7 @@ Siden dette prosjektet handler om å lære grunnleggende React, skal alle kompon
 - ~~Løsningen er basert på Typescript og React~~
 - ~~Viser bruk av React state og props~~
 - ~~Løsningen henter data/informasjon fra et REST API og bruker TanStack Query~~
-- Bruker HTML Web storage api localstorage eller webstorage, alternativt kan dere også bruke IndexedDB API’et.
+- ~~Bruker HTML Web storage api localstorage eller webstorage, alternativt kan dere også bruke IndexedDB API’et.~~
 - ~~Bruker React Router~~
 - Løsningen har responsivt design
 
@@ -48,7 +48,7 @@ Siden dette prosjektet handler om å lære grunnleggende React, skal alle kompon
 - ~~React prosjekt satt opp med Vite 4.4+, bruk npm create vite@latest, velg prosjekttypen for React -> Typescript~~
 - ~~Bruk av git og kildekoden på gitlab.stud.ntnu.no,~~
 - ~~bruk av branching og issues for å styre utviklingsoppgaver og lenke commits og merge til issues.~~
-- ~~Bruk av linting~~ og prettify
+- ~~Bruk av linting og prettify~~
 - Oppsett og komme i gang med testing: 
    - ~~Bruk av Vitest~~
    - Vise snapshot test
