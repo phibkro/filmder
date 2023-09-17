@@ -6,11 +6,28 @@ import { Link } from "react-router-dom";
 interface CardProps {
   result: MovieResult;
   href: string;
+  onAdd: () => void;
+  onRemove: () => void;
+  favorited?: boolean;
+  showStar?: boolean;
   size?: "small" | "medium" | "large";
 }
-export default function Card({ result, href, size = "medium" }: CardProps) {
-  const [isFavorite, setIsFavorite] = useState(false);
+export default function Card({
+  result,
+  href,
+  onAdd,
+  onRemove,
+  favorited = false,
+  showStar = true,
+  size = "medium",
+}: CardProps) {
+  const [isFavorite, setIsFavorite] = useState(favorited);
   function toggleFavorite() {
+    if (isFavorite) {
+      onRemove();
+    } else {
+      onAdd();
+    }
     setIsFavorite(!isFavorite);
     console.log(isFavorite);
   }
@@ -40,11 +57,13 @@ export default function Card({ result, href, size = "medium" }: CardProps) {
         />
       </Link>
 
-      <Star
-        size={starSize}
-        className={isFavorite ? "fill hover star" : "hover star"}
-        onClick={toggleFavorite}
-      />
+      {showStar && (
+        <Star
+          size={starSize}
+          className={isFavorite ? "fill hover star" : "hover star"}
+          onClick={toggleFavorite}
+        />
+      )}
     </div>
   );
 }

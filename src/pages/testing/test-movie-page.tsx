@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
+import { useNumberStore } from "../../hooks/useNumberStore";
 import Carousel from "../../components/Carousel";
 import Card from "../../components/Card";
 
@@ -22,6 +23,8 @@ export default function TestMoviePage() {
     },
     refetchOnWindowFocus: false,
   });
+  const [numberStore, addToStore, removeFromStore] =
+    useNumberStore("favorites");
   console.log(data);
   return (
     <>
@@ -43,6 +46,9 @@ export default function TestMoviePage() {
                   href={"/movies/" + result.id}
                   size="medium"
                   result={result}
+                  onAdd={() => addToStore(result.id)}
+                  onRemove={() => removeFromStore(result.id)}
+                  favorited={numberStore.includes(result.id)}
                 />
               </li>
             ))}

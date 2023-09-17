@@ -34,6 +34,7 @@ export default function Carousel({ results }: CarouselProps) {
         href={"/movies/" + results[currentResult].id}
         size="large"
         result={results[currentResult]}
+        showStar={false}
       />
       <ChevronRight
         size={"3.5em"}
