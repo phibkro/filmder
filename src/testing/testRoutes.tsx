@@ -9,7 +9,7 @@ const routes = [
     element: <ThemeTest />,
   },
   {
-    path: "movie-page",
+    path: "frontpage",
     element: <FrontpageTest />,
   },
   {
