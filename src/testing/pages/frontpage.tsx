@@ -3,24 +3,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useNumberStore } from "../../hooks/useNumberStore";
 import Carousel from "../../components/Carousel";
 import Card from "../../components/Card";
+import { getPopularMovies } from "../../utils/apiCalls";
 
 export default function FrontpageTest() {
   const { isLoading, isError, data, error } = useQuery({
-    queryKey: ["movies"],
-    queryFn: async () => {
-      const response = await fetch(
-        "https://api.themoviedb.org/3/movie/popular",
-        {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-            Authorization: import.meta.env.VITE_API_READ_ACCESS_TOKEN,
-          },
-        }
-      );
-      const data = response.json();
-      return data;
-    },
+    queryKey: ["popularMovies"],
+    queryFn: getPopularMovies,
     refetchOnWindowFocus: false,
   });
   const [numberStore, addToStore, removeFromStore] =
