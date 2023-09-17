@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "theme",
-        element: <ThemeTesting />
+        element: <ThemeTesting />,
       },
       {
         path: "movie-page",
@@ -38,6 +38,7 @@ const router = createBrowserRouter([
         element: <TESTLocalStoragePage />,
       },
     ],
+  },
 ]);
 const queryClient = new QueryClient();
 
