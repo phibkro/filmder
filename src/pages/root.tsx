@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
 import Carousel from "../components/Carousel";
-import "../styles/root.css";
 
 function Root() {
   const { isLoading, isError, data, error } = useQuery({
