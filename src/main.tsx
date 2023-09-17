@@ -7,6 +7,7 @@ import ErrorPage from "./pages/error-page.tsx";
 import MoviePage from "./pages/movie-page.tsx";
 import "./styles/global.css";
 import TestMoviePage from "./pages/testing/test-movie-page.tsx";
+import TESTLocalStoragePage from "./pages/testing/local-storage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/test/movie-page",
     element: <TestMoviePage />,
+  },
+  {
+    path: "/test/local-storage",
+    element: <TESTLocalStoragePage />,
   },
 ]);
 const queryClient = new QueryClient();
