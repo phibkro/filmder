@@ -7,6 +7,7 @@ import { getPopularMovies } from "../../utils/apiCalls";
 
 export default function TestMoviePage() {
   const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["popularMovies"],
     queryFn: getPopularMovies,
     refetchOnWindowFocus: false,
   });

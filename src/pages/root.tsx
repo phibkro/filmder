@@ -5,6 +5,7 @@ import { getPopularMovies } from "../utils/apiCalls";
 
 function Root() {
   const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["popularMovies"],
     queryFn: getPopularMovies,
   });
   console.log(data);
