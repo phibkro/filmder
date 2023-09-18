@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 
-export function useNumberStore(
-  key: string = "favorites"
-): [
-  numberStore: number[],
-  addToStore: (value: number) => void,
-  removeFromStore: (value: number) => void,
-  clearStore: () => void
-] {
+export function useNumberStore(key: string = "favorites"): {
+  numberStore: number[];
+  addToStore: (value: number) => void;
+  removeFromStore: (value: number) => void;
+  clearStore: () => void;
+} {
   const [numberStore, setNumberStore] = useState<number[]>(() => {
     // Initialize list from local storage or []
     const data = localStorage.getItem(key);
@@ -43,5 +41,5 @@ export function useNumberStore(
     setNumberStore([]);
   }
 
-  return [numberStore, addToStore, removeFromStore, clearStore];
+  return { numberStore, addToStore, removeFromStore, clearStore };
 }
