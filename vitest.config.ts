@@ -8,7 +8,7 @@ export default mergeConfig(
       "import.meta.vitest": "undefined",
     },
     test: {
-      includeSource: ["src/**/*.{js,ts}"],
+      includeSource: ["src/**/*.{js,ts,jsx,tsx}"],
       coverage: {
         provider: "v8",
         reporter: ["text"],
