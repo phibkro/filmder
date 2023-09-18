@@ -2,19 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import Root from "./pages/root.tsx";
-import ErrorPage from "./pages/error-page.tsx";
+
+import { ThemeProvider } from "./features/theming/themeProvider.tsx";
 import "./styles/global.css";
 import Navbar from "./components/navbar.tsx";
 
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-  },
-]);
+import { mainRoutes } from "./routing/mainRoutes.tsx";
+import { testRoutes } from "./testing/testRoutes.tsx";
+
+const router = createBrowserRouter([...mainRoutes, testRoutes]);
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

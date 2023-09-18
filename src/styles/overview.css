@@ -1,0 +1,29 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10%;
+    width: auto;
+}
+.overviewWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    
+}
+.overviewWrapper div{
+    margin-bottom: 20px;
+    
+}
+h3{
+    margin-bottom: 5px;
+}
+p{
+    margin-top: 5px;
+}
+.spesificInfoWrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}

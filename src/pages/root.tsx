@@ -1,23 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import "../styles/root.css";
+
+import Carousel from "../components/Carousel";
+import { getPopularMovies } from "../utils/apiCalls";
 
 function Root() {
   const { isLoading, isError, data, error } = useQuery({
-    queryKey: ["movies"],
-    queryFn: async () => {
-      const response = await fetch(
-        "https://api.themoviedb.org/3/authentication",
-        {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-            Authorization: import.meta.env.VITE_API_READ_ACCESS_TOKEN,
-          },
-        }
-      );
-      const data = response.json();
-      return data;
-    },
+    queryKey: ["popularMovies"],
+    queryFn: getPopularMovies,
   });
   console.log(data);
   return (
@@ -28,6 +17,8 @@ function Root() {
       {/*@ts-ignore*/}
       {isError && <span>Error: {error.message}</span>}
       <p>{data?.status_message}</p>
+
+      {data && <Carousel results={data?.results} />}
     </>
   );
 }
