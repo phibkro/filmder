@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
-import ThemeTest from "./pages/theme.tsx";
-import FrontpageTest from "./pages/frontpage.tsx";
-import LocalStorageTest from "./pages/local-storage.tsx";
+import ThemeTest from "../test/pages/theme.tsx";
+import FrontpageTest from "../test/pages/frontpage.tsx";
+import LocalStorageTest from "../test/pages/local-storage.tsx";
 
 const routes = [
   {

@@ -7,7 +7,7 @@ import { ThemeProvider } from "./features/theming/themeProvider.tsx";
 import "./styles/global.css";
 
 import { mainRoutes } from "./routing/mainRoutes.tsx";
-import { testRoutes } from "./testing/testRoutes.tsx";
+import { testRoutes } from "./routing/testRoutes.tsx";
 
 const router = createBrowserRouter([...mainRoutes, testRoutes]);
 const queryClient = new QueryClient();
