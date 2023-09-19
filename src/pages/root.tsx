@@ -22,7 +22,7 @@ function Root() {
 
       {data && <Carousel results={data?.results} />}
 
-      <MovieList results={data?.results}/>
+      {data && <MovieList results={data?.results} />}
     </>
   );
 }
