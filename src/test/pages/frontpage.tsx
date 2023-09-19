@@ -11,7 +11,7 @@ export default function FrontpageTest() {
     queryFn: getPopularMovies,
     refetchOnWindowFocus: false,
   });
-  const [numberStore, addToStore, removeFromStore] =
+  const { numberStore, addToStore, removeFromStore } =
     useNumberStore("favorites");
   return (
     <>
