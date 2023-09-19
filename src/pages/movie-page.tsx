@@ -18,9 +18,12 @@ export default function MoviePage() {
       setResult(data);
     }
   }, [isSuccess, data]);
-
+  if (isError) {
+    console.log(error);
+  }
   return (
     <>
+      {isLoading && <span>...loading</span>}
       {result && (
         <div className="wrapper">
           <div className="item1">
