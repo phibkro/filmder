@@ -4,11 +4,14 @@
 
 Filmder is a website for browsing and saving your favorite movies.
 It is a project by uni students studying informatics.
-It utilizes modern web technologies like React, TypeScript, Vite, Vitest and TanStack query.
+Filmder is a website for matching you with the currently hottest movies. By browsing our movieselection, you will find movies that you will love. When you find a movie that you want to watch later, you can add it to your favourites by clicking on the favourite icon. Then the movie will be saved in the list below. When you have seen the movie, you can then remove it from this list by (hvordan fjerne fra favoritter). If you find a movie that you think you might love, but is on the fence of whether to match with it or not, you can always click the movie to get a quick overview of what it is about and how well liked it is.
+
+This is all done by utilizing modern web technologies like React, TypeScript, Vite, Vitest and TanStack query.
 
 ## Testing
 
-We applied multiple methods for testing. For testing
+We applied multiple methods for testing.
+The first method is our testing page. Here we could easily test toggling dark/light mode, see local storage and favouriting movies. We also used unit testing for components to see if they worked how we wanted to while developing Filmder, and to immedeately be alerted if an unintended change during the development had occurred.
 
 ## Roadmap
 
