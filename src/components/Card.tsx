@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { MovieResult } from "../utils/types";
+import { MovieListResult } from "../utils/types";
 import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface CardProps {
-  result: MovieResult;
+  result: MovieListResult;
   href: string;
   onAdd: () => void;
   onRemove: () => void;

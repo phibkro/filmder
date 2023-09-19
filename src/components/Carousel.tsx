@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Card from "./Card";
-import { MovieResult } from "../utils/types";
+import { MovieListResult } from "../utils/types";
 
 interface CarouselProps {
-  results: MovieResult[];
+  results: MovieListResult[];
 }
 export default function Carousel({ results }: CarouselProps) {
   // Displays results using currentResult as index
