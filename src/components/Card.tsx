@@ -6,21 +6,22 @@ interface CardProps {
   src: string;
   alt: string;
   href: string;
-  onAdd: () => void;
-  onRemove: () => void;
   favorited?: boolean;
   showStar?: boolean;
   size?: "small" | "medium" | "large";
+  onAdd?: () => void;
+  onRemove?: () => void;
 }
 export default function Card({
   src,
   alt,
   href,
-  onAdd,
-  onRemove,
   favorited = false,
   showStar = true,
   size = "medium",
+  // Need fallback functions for them to be optional
+  onAdd = () => console.log("card favorited"),
+  onRemove = () => console.log("card unfavorited"),
 }: CardProps) {
   const [isFavorite, setIsFavorite] = useState(favorited);
   function toggleFavorite() {
