@@ -10,7 +10,20 @@ interface MovieAppProps {
 function MovieApp({ movieListResults }: MovieAppProps) {
   const { numberStore, addToStore, removeFromStore } =
     useNumberStore("favorites");
+  const [isFavoritesVisible, setIsFavoritesVisible] = useState(false);
   const [results, setResults] = useState(movieListResults);
+  const favorites = movieListResults.filter(
+    (result) => !numberStore.includes(result.id),
+  );
+  const toggleShowFavorites = () => {
+    if (isFavoritesVisible) {
+      setIsFavoritesVisible(false);
+      setResults(movieListResults);
+    } else {
+      setIsFavoritesVisible(true);
+      setResults(favorites);
+    }
+  };
   return (
     <>
       <main>
@@ -31,6 +44,10 @@ function MovieApp({ movieListResults }: MovieAppProps) {
             />
           ))}
         />
+        <button onClick={toggleShowFavorites}>
+          {isFavoritesVisible && "show"} {!isFavoritesVisible && "hide"}{" "}
+          favorites
+        </button>
         <ul className="filmList">
           {results.map((result) => (
             <li key={result.id}>
