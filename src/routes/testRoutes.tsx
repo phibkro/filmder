@@ -13,7 +13,7 @@ const routes = [
   },
 ];
 export const testRoutes = {
-  path: "/test",
+  path: "project1/test",
   element: (
     <>
       <nav>
