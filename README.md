@@ -4,10 +4,10 @@ It is a project by uni students studying informatics.
 It utilizes modern web technologies like React, TypeScript, Vite, Vitest and TanStack query.
 
 ## Roadmap
-- Carousel to quickly flip through currently popular movies
-- Favorite list to scroll through your favorite movies
+- ~~Carousel to quickly flip through currently popular movies~~
+- ~~Show/hide favorite movies button~~
 - Detailed movie page to read about your selected movie
-- Togglable light/dark mode switch
+- ~~Togglable light/dark mode switch~~
 
 # Prosjektbeskrivelse
 ## Tema for prosjektet
@@ -27,9 +27,9 @@ Siden dette prosjektet handler om å lære grunnleggende React, skal alle kompon
 
 ## Funksjonelle krav:
 
-- Brukeren skal få presentert en og en ressurs om gangen, men enkel mulighet til å bla seg frem og tilbake, og med mulighet til å hoppe til en spesifikk ressurs (f.eks. ved å velge i en liste).
+- ~~Brukeren skal få presentert en og en ressurs om gangen, men enkel mulighet til å bla seg frem og tilbake, og med mulighet til å hoppe til en spesifikk ressurs (f.eks. ved å velge i en liste).~~
 - En bruker skal kunne gjøre et valg som påvirker utvalget av det som presenteres og hvordan det presenteres. Disse valgene skal huskes selv om siden reloades.
-- En bruker skal kunne velge favoritter ved å for eksempel klikke på en stjerne eller et hjerte. Valg skal huskes selv om nettleser avsluttes og startes igjen.
+- ~~En bruker skal kunne velge favoritter ved å for eksempel klikke på en stjerne eller et hjerte. Valg skal huskes selv om nettleser avsluttes og startes igjen.~~
 - Siden skal ha responsivt design og være utformet med tanke på både vanlig desktop skjerm og mobil enhet (tilpasse seg mindre skjerm som kan være både i høyde og breddeformat).
 - Siden skal ha en estetisk og ryddig utforming (dette er subjektivt, men vi er ute etter at dere skal ha lagt ned litt arbeid i stiling av siden). 
 
@@ -38,7 +38,7 @@ Siden dette prosjektet handler om å lære grunnleggende React, skal alle kompon
 - ~~Løsningen er basert på Typescript og React~~
 - ~~Viser bruk av React state og props~~
 - ~~Løsningen henter data/informasjon fra et REST API og bruker TanStack Query~~
-- Bruker HTML Web storage api localstorage eller webstorage, alternativt kan dere også bruke IndexedDB API’et.
+- ~~Bruker HTML Web storage api localstorage eller webstorage, alternativt kan dere også bruke IndexedDB API’et.~~
 - ~~Bruker React Router~~
 - Løsningen har responsivt design
 
@@ -48,7 +48,7 @@ Siden dette prosjektet handler om å lære grunnleggende React, skal alle kompon
 - ~~React prosjekt satt opp med Vite 4.4+, bruk npm create vite@latest, velg prosjekttypen for React -> Typescript~~
 - ~~Bruk av git og kildekoden på gitlab.stud.ntnu.no,~~
 - ~~bruk av branching og issues for å styre utviklingsoppgaver og lenke commits og merge til issues.~~
-- ~~Bruk av linting~~ og prettify
+- ~~Bruk av linting og prettify~~
 - Oppsett og komme i gang med testing: 
    - ~~Bruk av Vitest~~
    - Vise snapshot test

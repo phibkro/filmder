@@ -61,6 +61,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
+/* Reset */
+body, h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+  padding: 0;
+}
 /* Global styles */
 a {
   font-weight: 500;
@@ -71,12 +76,10 @@ a:hover {
   color: #535bf2;
 }
 h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
   color: var(--foreground)
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
 }
 .hover {
@@ -89,10 +92,16 @@ body {
   fill: var(--foreground);
 }
 /* Layout styles */
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2em;
 }
 /* Component styles */
 /* Nav */
@@ -120,7 +129,7 @@ nav {
   align-items: center;
   gap: 0.5em;
 }
-.card img:hover {
+.cardhover img:hover {
   outline: var(--foreground) 2px solid;
   cursor: pointer;
 }

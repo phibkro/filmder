@@ -3,7 +3,7 @@ import { useNumberStore } from "../../hooks/useNumberStore";
 
 export default function LocalStorageTest() {
   const [input, setInput] = useState(0);
-  const [numberStore, addToStore, removeFromStore, clearStore] =
+  const { numberStore, addToStore, removeFromStore, clearStore } =
     useNumberStore("favorites");
   return (
     <main

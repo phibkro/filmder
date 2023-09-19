@@ -1,7 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
-import ThemeTest from "./pages/theme.tsx";
-import FrontpageTest from "./pages/frontpage.tsx";
-import LocalStorageTest from "./pages/local-storage.tsx";
+import ThemeTest from "../test/pages/theme.tsx";
+import LocalStorageTest from "../test/pages/local-storage.tsx";
 
 const routes = [
   {
@@ -9,21 +8,19 @@ const routes = [
     element: <ThemeTest />,
   },
   {
-    path: "movie-page",
-    element: <FrontpageTest />,
-  },
-  {
     path: "local-storage",
     element: <LocalStorageTest />,
   },
 ];
 export const testRoutes = {
-  path: "/test",
+  path: "project1/test",
   element: (
     <>
       <nav>
-        {routes.map(({ path }) => (
-          <Link to={path}>{path}</Link>
+        {routes.map(({ path }, i) => (
+          <Link to={path} key={i}>
+            {path}
+          </Link>
         ))}
       </nav>
       <main>
