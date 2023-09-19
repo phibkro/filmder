@@ -3,6 +3,7 @@ import { useNumberStore } from "../hooks/useNumberStore";
 import Carousel from "../components/Carousel";
 import Card from "../components/Card";
 import { MovieListResult } from "../utils/types";
+import { createPosterUrl } from "../utils/lib";
 
 interface MovieAppProps {
   movieListResults: MovieListResult[];
@@ -31,9 +32,7 @@ function MovieApp({ movieListResults }: MovieAppProps) {
         <Carousel
           items={movieListResults.map((result) => (
             <Card
-              src={
-                "https://image.tmdb.org/t/p/" + "original" + result.poster_path
-              }
+              src={createPosterUrl(result.poster_path)}
               alt={"Poster for the movie" + result.title}
               href={"movies/" + result.id}
               size="large"
@@ -52,11 +51,7 @@ function MovieApp({ movieListResults }: MovieAppProps) {
           {results.map((result) => (
             <li key={result.id}>
               <Card
-                src={
-                  "https://image.tmdb.org/t/p/" +
-                  "original" +
-                  result.poster_path
-                }
+                src={createPosterUrl(result.poster_path)}
                 alt={"Poster for the movie" + result.title}
                 href={"movies/" + result.id}
                 size="medium"

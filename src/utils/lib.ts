@@ -1,3 +1,3 @@
-export function add(x: number, y: number) {
-  return x + y;
+export function createPosterUrl(pathTail: string) {
+  return "https://image.tmdb.org/t/p/" + "original" + pathTail;
 }
