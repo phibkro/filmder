@@ -1,25 +1,27 @@
 import { useState } from "react";
-import { MovieListResult } from "../utils/types";
 import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface CardProps {
-  result: MovieListResult;
+  src: string;
+  alt: string;
   href: string;
-  onAdd: () => void;
-  onRemove: () => void;
   favorited?: boolean;
   showStar?: boolean;
   size?: "small" | "medium" | "large";
+  onAdd?: () => void;
+  onRemove?: () => void;
 }
 export default function Card({
-  result,
+  src,
+  alt,
   href,
-  onAdd,
-  onRemove,
   favorited = false,
   showStar = true,
   size = "medium",
+  // Need fallback functions for them to be optional
+  onAdd = () => console.log("card favorited"),
+  onRemove = () => console.log("card unfavorited"),
 }: CardProps) {
   const [isFavorite, setIsFavorite] = useState(favorited);
   function toggleFavorite() {
@@ -29,7 +31,6 @@ export default function Card({
       onAdd();
     }
     setIsFavorite(!isFavorite);
-    console.log(isFavorite);
   }
   let imgWidth = 200;
   let starSize = "3.5em";
@@ -50,11 +51,7 @@ export default function Card({
   return (
     <div className="card">
       <Link to={href}>
-        <img
-          src={"https://image.tmdb.org/t/p/" + "original" + result.poster_path}
-          alt={"Poster for the movie" + result.title}
-          width={imgWidth}
-        />
+        <img src={src} alt={alt} width={imgWidth} />
       </Link>
 
       {showStar && (
