@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useBoolean } from "../hooks/useBoolean";
 import { useNumberStore } from "../hooks/useNumberStore";
 import Carousel from "../components/Carousel";
 import Card from "../components/Card";
@@ -10,19 +11,22 @@ interface MovieAppProps {
 function MovieApp({ movieListResults }: MovieAppProps) {
   const { numberStore, addToStore, removeFromStore } =
     useNumberStore("favorites");
-  const [isFavoritesVisible, setIsFavoritesVisible] = useState(false);
-  const [results, setResults] = useState(movieListResults);
-  const favorites = movieListResults.filter(
-    (result) => !numberStore.includes(result.id),
+  const [isFavoritesVisible, toggleIsFavoritesVisible] =
+    useBoolean("isfavoritesvisible");
+  const [results, setResults] = useState(
+    isFavoritesVisible
+      ? movieListResults
+      : movieListResults.filter((result) => numberStore.includes(result.id)),
   );
-  const toggleShowFavorites = () => {
+  const handleFavorites = () => {
     if (isFavoritesVisible) {
-      setIsFavoritesVisible(false);
       setResults(movieListResults);
     } else {
-      setIsFavoritesVisible(true);
-      setResults(favorites);
+      setResults(
+        movieListResults.filter((result) => numberStore.includes(result.id)),
+      );
     }
+    toggleIsFavoritesVisible();
   };
   return (
     <>
@@ -44,8 +48,9 @@ function MovieApp({ movieListResults }: MovieAppProps) {
             />
           ))}
         />
-        <button onClick={toggleShowFavorites}>
-          {isFavoritesVisible && "show"} {!isFavoritesVisible && "hide"}{" "}
+        <button onClick={handleFavorites}>
+          {isFavoritesVisible && "hide "}
+          {!isFavoritesVisible && "show "}
           favorites
         </button>
         <ul className="filmList">
