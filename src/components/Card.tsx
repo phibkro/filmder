@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 interface CardProps {
   src: string;
   alt: string;
-  href: string;
+  href?: string;
   favorited?: boolean;
   showStar?: boolean;
   size?: "small" | "medium" | "large";
@@ -49,10 +49,14 @@ export default function Card({
       break;
   }
   return (
-    <div className="card">
-      <Link to={href}>
+    <div className={href ? "cardhover card" : "card"}>
+      {href ? (
+        <Link to={href}>
+          <img src={src} alt={alt} width={imgWidth} />
+        </Link>
+      ) : (
         <img src={src} alt={alt} width={imgWidth} />
-      </Link>
+      )}
 
       {showStar && (
         <Star

@@ -17,8 +17,10 @@ export const testRoutes = {
   element: (
     <>
       <nav>
-        {routes.map(({ path }) => (
-          <Link to={path}>{path}</Link>
+        {routes.map(({ path }, i) => (
+          <Link to={path} key={i}>
+            {path}
+          </Link>
         ))}
       </nav>
       <main>
