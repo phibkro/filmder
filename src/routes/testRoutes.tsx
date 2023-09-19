@@ -1,16 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 import ThemeTest from "../test/pages/theme.tsx";
-import FrontpageTest from "../test/pages/frontpage.tsx";
 import LocalStorageTest from "../test/pages/local-storage.tsx";
 
 const routes = [
   {
     path: "theme",
     element: <ThemeTest />,
-  },
-  {
-    path: "frontpage",
-    element: <FrontpageTest />,
   },
   {
     path: "local-storage",

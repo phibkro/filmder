@@ -11,7 +11,6 @@ export default function Header() {
           <li>
             <Link to="/"></Link>
           </li>
-
         </ul>
       </nav>
 

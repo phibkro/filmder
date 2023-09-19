@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { getMovieById } from "../utils/apiCalls";
+import { getMovieById } from "../server/api";
 import "../styles/overview.css";
 import { useEffect, useState } from "react";
 import { MovieDetails } from "../utils/types";
@@ -18,9 +18,12 @@ export default function MoviePage() {
       setResult(data);
     }
   }, [isSuccess, data]);
-
+  if (isError) {
+    console.log(error);
+  }
   return (
     <>
+      {isLoading && <span>...loading</span>}
       {result && (
         <div className="wrapper">
           <div className="item1">
