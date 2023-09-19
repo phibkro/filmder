@@ -5,7 +5,6 @@ import "../styles/overview.css";
 import { useEffect, useState } from "react";
 import { MovieDetails } from "../utils/types";
 import { createPosterUrl } from "../utils/lib";
-import Header from "../layouts/Header";
 
 export default function MoviePage() {
   const { movieId } = useParams();
@@ -25,7 +24,6 @@ export default function MoviePage() {
   }
   return (
     <>
-      <Header></Header>
       {isLoading && <span>...loading</span>}
       {result && (
         <div className="wrapper">

@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ThemeToggle } from "../features/theming/themeToggle";
 import { Home } from "lucide-react";
 
@@ -16,8 +16,6 @@ export default function Header() {
           <ThemeToggle />
         </li>
       </nav>
-
-      <Outlet />
     </header>
   );
 }
