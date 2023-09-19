@@ -6,8 +6,8 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ThemeProvider } from "./features/theming/themeProvider.tsx";
 import "./styles/global.css";
 
-import { mainRoutes } from "./routing/mainRoutes.tsx";
-import { testRoutes } from "./routing/testRoutes.tsx";
+import { mainRoutes } from "./routes/mainRoutes.tsx";
+import { testRoutes } from "./routes/testRoutes.tsx";
 
 const router = createBrowserRouter([...mainRoutes, testRoutes]);
 const queryClient = new QueryClient();
