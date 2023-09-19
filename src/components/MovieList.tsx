@@ -12,21 +12,14 @@ function MovieList(favorites: MovieResult[]) {
     <div>
       <h2>Min liste</h2>
       {/* Box that maps each restult to a Card */}
-      <div className="cardHolder"></div>
+      <div className="cardHolder">
+        {numberStore.map((id) => {
+          return (
+            <Card href={"/movies/" + id} size={"small"} showStar={false} />
+          );
+        })}
+      </div>
     </div>
   );
 }
-
-/*
-{favorites.map((movie) => {
-          return (
-            <Card
-              href={"/movies/" + movie.id}
-              size="small"
-              result={movie}
-              showStar={false}
-            />
-          );
-        })}
-        */
 export default MovieList;
