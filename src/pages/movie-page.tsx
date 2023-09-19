@@ -4,6 +4,8 @@ import { getMovieById } from "../utils/apiCalls";
 import "../styles/overview.css";
 import { useEffect, useState } from "react";
 import { MovieDetails } from "../utils/types";
+import Header from "../layouts/Header";
+import { ThemeToggle } from "../features/theming/themeToggle";
 
 export default function MoviePage() {
   const { movieId } = useParams();
@@ -21,6 +23,7 @@ export default function MoviePage() {
 
   return (
     <>
+      <Header></Header>
       {result && (
         <div className="wrapper">
           <div className="item1">

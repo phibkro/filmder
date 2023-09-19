@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import Carousel from "../components/Carousel";
 import { getPopularMovies } from "../utils/apiCalls";
+import Header from "../layouts/Header";
 
 function Root() {
   const { isLoading, isError, data, error } = useQuery({
@@ -11,6 +12,7 @@ function Root() {
   console.log(data);
   return (
     <>
+      <Header></Header>
       <h1>Hello world!</h1>
       {isLoading && <span>Loading...</span>}
       {/*TODO: fix ts error error*/}
