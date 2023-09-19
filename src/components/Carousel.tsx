@@ -1,46 +1,31 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Card from "./Card";
-import { MovieListResult } from "../utils/types";
 
 interface CarouselProps {
-  results: MovieListResult[];
+  items: JSX.Element[];
 }
-export default function Carousel({ results }: CarouselProps) {
+export default function Carousel({ items }: CarouselProps) {
   // Displays results using currentResult as index
-  const [currentResult, setCurrentResult] = useState(0);
-  function incrementCurrentResult() {
-    if (currentResult === results.length - 1) {
-      setCurrentResult(0);
+  const [index, setIndex] = useState(0);
+  function incrementIndex() {
+    if (index === items.length - 1) {
+      setIndex(0);
     } else {
-      setCurrentResult(currentResult + 1);
+      setIndex(index + 1);
     }
   }
-  function decrementCurrentResult() {
-    if (currentResult === 0) {
-      setCurrentResult(results.length - 1);
+  function decrementIndex() {
+    if (index === 0) {
+      setIndex(items.length - 1);
     } else {
-      setCurrentResult(currentResult - 1);
+      setIndex(index - 1);
     }
   }
   return (
     <div className="carousel">
-      <ChevronLeft
-        size={"3.5em"}
-        className="hover"
-        onClick={decrementCurrentResult}
-      />
-      <Card
-        href={"/movies/" + results[currentResult].id}
-        size="large"
-        result={results[currentResult]}
-        showStar={false}
-      />
-      <ChevronRight
-        size={"3.5em"}
-        className="hover"
-        onClick={incrementCurrentResult}
-      />
+      <ChevronLeft size={"3.5em"} className="hover" onClick={decrementIndex} />
+      {items[index]}
+      <ChevronRight size={"3.5em"} className="hover" onClick={incrementIndex} />
     </div>
   );
 }

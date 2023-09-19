@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { getMovieById } from "../utils/apiCalls";
+import { getMovieById } from "../server/api";
 import "../styles/overview.css";
 import { useEffect, useState } from "react";
 import { MovieDetails } from "../utils/types";
+import { createPosterUrl } from "../utils/lib";
 import Header from "../layouts/Header";
-import { ThemeToggle } from "../features/theming/themeToggle";
 
 export default function MoviePage() {
   const { movieId } = useParams();
@@ -20,17 +20,18 @@ export default function MoviePage() {
       setResult(data);
     }
   }, [isSuccess, data]);
-
+  if (isError) {
+    console.log(error);
+  }
   return (
     <>
       <Header></Header>
+      {isLoading && <span>...loading</span>}
       {result && (
         <div className="wrapper">
           <div className="item1">
             <img
-              src={
-                "https://image.tmdb.org/t/p/" + "original" + result.poster_path
-              }
+              src={createPosterUrl(result.poster_path)}
               alt={"Filmcover for" + result.original_title}
             />
           </div>

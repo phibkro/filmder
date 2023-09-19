@@ -5,7 +5,7 @@ It utilizes modern web technologies like React, TypeScript, Vite, Vitest and Tan
 
 ## Roadmap
 - ~~Carousel to quickly flip through currently popular movies~~
-- Favorite list to scroll through your favorite movies
+- ~~Show/hide favorite movies button~~
 - Detailed movie page to read about your selected movie
 - ~~Togglable light/dark mode switch~~
 
@@ -27,7 +27,7 @@ Siden dette prosjektet handler om å lære grunnleggende React, skal alle kompon
 
 ## Funksjonelle krav:
 
-- Brukeren skal få presentert en og en ressurs om gangen, men enkel mulighet til å bla seg frem og tilbake, og med mulighet til å hoppe til en spesifikk ressurs (f.eks. ved å velge i en liste).
+- ~~Brukeren skal få presentert en og en ressurs om gangen, men enkel mulighet til å bla seg frem og tilbake, og med mulighet til å hoppe til en spesifikk ressurs (f.eks. ved å velge i en liste).~~
 - En bruker skal kunne gjøre et valg som påvirker utvalget av det som presenteres og hvordan det presenteres. Disse valgene skal huskes selv om siden reloades.
 - ~~En bruker skal kunne velge favoritter ved å for eksempel klikke på en stjerne eller et hjerte. Valg skal huskes selv om nettleser avsluttes og startes igjen.~~
 - Siden skal ha responsivt design og være utformet med tanke på både vanlig desktop skjerm og mobil enhet (tilpasse seg mindre skjerm som kan være både i høyde og breddeformat).
