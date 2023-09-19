@@ -35,7 +35,7 @@ function MovieApp({ movieListResults }: MovieAppProps) {
                 "https://image.tmdb.org/t/p/" + "original" + result.poster_path
               }
               alt={"Poster for the movie" + result.title}
-              href={"/movies/" + result.id}
+              href={"movies/" + result.id}
               size="large"
               onAdd={() => addToStore(result.id)}
               onRemove={() => removeFromStore(result.id)}
@@ -58,7 +58,7 @@ function MovieApp({ movieListResults }: MovieAppProps) {
                   result.poster_path
                 }
                 alt={"Poster for the movie" + result.title}
-                href={"/movies/" + result.id}
+                href={"movies/" + result.id}
                 size="medium"
                 onAdd={() => addToStore(result.id)}
                 onRemove={() => removeFromStore(result.id)}
