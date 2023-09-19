@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 
 import Carousel from "../components/Carousel";
 import { getPopularMovies } from "../utils/apiCalls";
+import Card from "../components/Card";
+import MovieList from "../components/MovieList";
 
 function Root() {
   const { isLoading, isError, data, error } = useQuery({
@@ -19,6 +21,8 @@ function Root() {
       <p>{data?.status_message}</p>
 
       {data && <Carousel results={data?.results} />}
+
+      <MovieList results={data?.results}/>
     </>
   );
 }
