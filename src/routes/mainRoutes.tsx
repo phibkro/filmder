@@ -3,12 +3,12 @@ import ErrorPage from "../pages/error-page.tsx";
 import MoviePage from "../pages/movie-page.tsx";
 export const mainRoutes = [
   {
-    path: "project1",
+    path: import.meta.env.BASE_URL,
     element: <Root />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "project1/movies/:movieId",
+    path: import.meta.env.BASE_URL + "/movies/:movieId",
     element: <MoviePage />,
     errorElement: <ErrorPage />,
   },

@@ -66,6 +66,9 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
   margin: 0;
   padding: 0;
 }
+ul, li {
+  list-style: none;
+}
 /* Global styles */
 a {
   font-weight: 500;
@@ -104,10 +107,14 @@ main {
   gap: 2em;
 }
 /* Component styles */
+header {
+  margin-top: 1em;
+}
 /* Nav */
 nav {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 /* Carousel */
 .carousel {

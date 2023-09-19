@@ -79,7 +79,6 @@ function MovieApp({ movieListResults }: MovieAppProps) {
   return (
     <>
       <main>
-        <h1>Filmder</h1>
         <Carousel
           items={movieListResults.map((result) => (
             <Card
