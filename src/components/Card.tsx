@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { MovieResult } from "../utils/types";
 import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface CardProps {
-  result: MovieResult;
+  src: string;
+  alt: string;
   href: string;
   onAdd: () => void;
   onRemove: () => void;
@@ -13,7 +13,8 @@ interface CardProps {
   size?: "small" | "medium" | "large";
 }
 export default function Card({
-  result,
+  src,
+  alt,
   href,
   onAdd,
   onRemove,
@@ -29,7 +30,6 @@ export default function Card({
       onAdd();
     }
     setIsFavorite(!isFavorite);
-    console.log(isFavorite);
   }
   let imgWidth = 200;
   let starSize = "3.5em";
@@ -50,11 +50,7 @@ export default function Card({
   return (
     <div className="card">
       <Link to={href}>
-        <img
-          src={"https://image.tmdb.org/t/p/" + "original" + result.poster_path}
-          alt={"Poster for the movie" + result.title}
-          width={imgWidth}
-        />
+        <img src={src} alt={alt} width={imgWidth} />
       </Link>
 
       {showStar && (
