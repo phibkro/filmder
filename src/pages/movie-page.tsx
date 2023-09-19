@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { getMovieById } from "../utils/apiCalls";
+import { getMovieById } from "../server/api";
 import "../styles/overview.css";
 import { useEffect, useState } from "react";
 import { MovieDetails } from "../utils/types";
