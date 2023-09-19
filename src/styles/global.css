@@ -129,7 +129,7 @@ nav {
   align-items: center;
   gap: 0.5em;
 }
-.card img:hover {
+.cardhover img:hover {
   outline: var(--foreground) 2px solid;
   cursor: pointer;
 }
