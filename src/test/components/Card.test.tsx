@@ -1,5 +1,6 @@
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { cleanup, render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import Card from "../../components/Card";
 
@@ -7,10 +8,17 @@ afterEach(cleanup);
 
 // TODO: test props and state
 describe("Card", () => {
-  it("should render", () => {
-    const result = render(
-      <Card src="/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Barbie movie" />,
-    );
+  it("loads and displays image", async () => {
+    // ARRANGE
+    render(<Card src="/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Barbie movie" />);
+
+    // ACT
+    await userEvent.click(screen.getByText("Load Greeting"));
+    await screen.findByRole("heading");
+
+    // ASSERT
+    expect(screen.getByRole("heading")).toHaveTextContent("hello there");
+    expect(screen.getByRole("button")).toBeDisabled();
   });
 });
 
