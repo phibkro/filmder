@@ -33,13 +33,11 @@ describe.todo("Card is interactive", () => {
   it.todo("star is toggleable and updates visually");
 });
 describe.todo("Card state", () => {
-  it.todo("can be favorited");
+  it.todo("can be favorited", () => {});
 });
 
 it("matches snapshot", async () => {
-  const result = render(
-    <Card src="/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Barbie movie" />,
-  );
+  const result = render(<Card src={src} alt={alt} />);
   await expect(result).toMatchInlineSnapshot(`
     {
       "asFragment": [Function],
