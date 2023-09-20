@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getMovieById } from "../server/api";
-import { MovieOverview } from "../components/MovieDetails";
+import MovieOverview from "../components/MovieOverview";
 import "../styles/overview.css";
 
 export default function MoviePage() {
