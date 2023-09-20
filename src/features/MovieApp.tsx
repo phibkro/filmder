@@ -93,18 +93,17 @@ function MovieApp({ movieListResults }: MovieAppProps) {
             />
           ))}
         />
-        <select name="filmList" id="filmList" onChange={(e) => handleChange(e)}>
-          {selectOptions.map(({ value, label }, i) =>
-            show === value ? (
-              <option value={value} key={i} selected>
-                {label}
-              </option>
-            ) : (
-              <option value={value} key={i}>
-                {label}
-              </option>
-            ),
-          )}
+        <select
+          name="filmList"
+          id="filmList"
+          defaultValue={show}
+          onChange={(e) => handleChange(e)}
+        >
+          {selectOptions.map(({ value, label }, i) => (
+            <option value={value} key={i}>
+              {label}
+            </option>
+          ))}
         </select>
         <ul className="filmList">
           {results.map((result) => (
