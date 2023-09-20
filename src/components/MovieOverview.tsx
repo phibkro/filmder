@@ -5,7 +5,7 @@ import Card from "./Card";
 interface MovieOverviewProps {
   movieDetails: MovieDetails;
 }
-export function MovieOverview({ movieDetails }: MovieOverviewProps) {
+export default function MovieOverview({ movieDetails }: MovieOverviewProps) {
   return (
     <main className="movie-overview">
       <Card
