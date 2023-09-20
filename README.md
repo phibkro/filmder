@@ -4,13 +4,19 @@
 
 Filmder is a website for browsing and saving your favorite movies.
 It is a project by uni students studying informatics.
-Filmder is a website for matching you with the currently hottest movies. By browsing our movieselection, you will find movies that you will love. When you find a movie that you want to watch later, you can add it to your favourites by clicking on the favourite icon. Then the movie will be saved in the list below. When you have seen the movie, you can then remove it from this list by (hvordan fjerne fra favoritter). If you find a movie that you think you might love, but is on the fence of whether to match with it or not, you can always click the movie to get a quick overview of what it is about and how well liked it is.
+
+Filmder is a website for matching you with the currently hottest movies. By browsing our movieselection, you will find movies that you will love. When you find a movie that you want to watch later, you can add it to your favourites by clicking on the favourite icon. Then the movie will be saved in your favorite list. To see your favorite movies or hide them from the selection you can select your prefered filter in the dropdown bar.  When you have seen the movie, you can then remove it from this list by clicking on the favorite icon again so that the star are no longer black. If you find a movie that you think you might love, but is on the fence of whether to match with it or not, you can always click the movie to get a quick overview of what it is about and how well liked it is.
 
 This is all done by utilizing modern web technologies like React, TypeScript, Vite, Vitest and TanStack query.
 
+## Guide to open project
+1. npm install
+2. npm run dev
+
+To run test use command: npm test
 ## Testing
 
-We applied multiple methods for testing.
+In this project we applied multiple methods for testing such as snapshot, mocking and unit testing for components etc...
 The first method is our testing page. Here we could easily test toggling dark/light mode, see local storage and favouriting movies. We also used unit testing for components to see if they worked how we wanted to while developing Filmder, and to immedeately be alerted if an unintended change during the development had occurred.
 
 ## Roadmap
@@ -20,7 +26,7 @@ The first method is our testing page. Here we could easily test toggling dark/li
 - Detailed movie page to read about your selected movie
 - ~~Togglable light/dark mode switch~~
 
-# Prosjektbeskrivelse
+
 
 ## Tema for prosjektet
 
