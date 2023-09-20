@@ -5,92 +5,28 @@
 Filmder is a website for browsing and saving your favorite movies.
 It is a project by uni students studying informatics.
 
-Filmder is a website for matching you with the currently hottest movies. By browsing our movieselection, you will find movies that you will love. When you find a movie that you want to watch later, you can add it to your favourites by clicking on the favourite icon. Then the movie will be saved in your favorite list. To see your favorite movies or hide them from the selection you can select your prefered filter in the dropdown bar.  When you have seen the movie, you can then remove it from this list by clicking on the favorite icon again so that the star are no longer black. If you find a movie that you think you might love, but is on the fence of whether to match with it or not, you can always click the movie to get a quick overview of what it is about and how well liked it is.
+Filmder is a website for matching you with the currently hottest movies. By browsing our movieselection, you will find movies that you will love. When you find a movie that you want to watch later, you can add it to your favourites by clicking on the favourite icon. Then the movie will be saved in your favorite list. To see your favorite movies or hide them from the selection you can select your prefered filter in the dropdown bar. When you have seen the movie, you can then remove it from this list by clicking on the favorite icon again so that the star are no longer black. If you find a movie that you think you might love, but is on the fence of whether to match with it or not, you can always click the movie to get a quick overview of what it is about and how well liked it is.
 
 This is all done by utilizing modern web technologies like React, TypeScript, Vite, Vitest and TanStack query.
 
-## Guide to open project
-1. npm install
-2. npm run dev
+## How to use this project
 
-To run test use command: npm test
+1. Clone the repo
+2. Install the dependencies with `npm install`
+3. Rename .env.example to .env and add your own theMovieDB authentication token to VITE_API_READ_ACCESS_TOKEN
+4. To play with the code yourself you can `npm run dev` to start a dev environment and `npm test` to check tests (with coverage)
+5. or you could `npm build` and deploy your own instance of the project
+
 ## Testing
 
-In this project we applied multiple methods for testing such as snapshot, mocking and unit testing for components etc...
-The first method is our testing page. Here we could easily test toggling dark/light mode, see local storage and favouriting movies. We also used unit testing for components to see if they worked how we wanted to while developing Filmder, and to immedeately be alerted if an unintended change during the development had occurred.
+We set up the testing environment for the project and created tests for what we thought was relevant to test. While not all tests are completely done yet, we still managed to finish many. We finished snapshot tests for all components. Because the movie overview page depend on data fetched from themoviedb we created mock data in order to not fetch data from the database. As of now most of our components rely on data as props to render and therefore when we test if the component renders we also test the prop. We also have tests for custom hooks and states.
 
-## Roadmap
+## Our choices
 
-- ~~Carousel to quickly flip through currently popular movies~~
-- Favorite list to scroll through your favorite movies
-- Detailed movie page to read about your selected movie
-- ~~Togglable light/dark mode switch~~
+Originally we were supposed to have a list of favorited movies. Instead we decided to have a dropdown menu to filter the movies below the movie carousel. This way, the users choice wil influence how and which movies are presented.
 
+We added an overview page for a chosen movie, so that the user will be able to get specific information about said movie. This is implemented by the user clicking on a movie either in the carousel or the movielist below in the homepage.
 
+We implemented system where you click on the star under the movie in order to favorite it. We decided to use localStorage for remembering what movies the user favorited, so the user can close and re-open their webbrowser without losing their favorite movies. This also applies to darkmode and the filtering option. Sessionstorage is therefore not relevant to this project because we wanted the page to remember the users choices after closing and reopening the webbrowser.
 
-## Tema for prosjektet
-
-Overordent tema for denne oppgaven er at dere skal hente ressurser (eller informasjon om noe) med et eksisterende REST API og lage en presentasjon av dette som en bruker kan bla i og gjøre enkelte valg i. Hvilken tjeneste dere henter fra og hva dere henter er opp til dere, men noen forslag kan være:
-
-- Værvarsling for de største byene
-- Dikt av en spesifikk dikter
-- Sangtekster av en artist
-- Genererte bilder basert på et sett kriterier etc.
-- Informasjon om GitHub repo
-
-Dette er alle eksempler som det er å google seg frem til åpne og dokumenterte REST API’er for. Hent inn et fornuftig antall ressurser, og det er ikke nødvendig å lage noen avansert løsning for å bestemme utvalget som hentes. Dette kan være hardkodet eller basert på enkle valg som gjøres av en bruker.
-
-Oppgaven er laget med tanke på at den skal fungere greit som showcase for funksjonelle og tekniske krav og det er greit å gå for enkle løsninger så lenge det innebærer at dere løser de forskjellige kravene som stilles.
-
-Siden dette prosjektet handler om å lære grunnleggende React, skal alle komponenter være egenutviklet og ikke benytte tredjepartskomponenter for UI.
-
-## Funksjonelle krav:
-
-- Brukeren skal få presentert en og en ressurs om gangen, men enkel mulighet til å bla seg frem og tilbake, og med mulighet til å hoppe til en spesifikk ressurs (f.eks. ved å velge i en liste).
-- En bruker skal kunne gjøre et valg som påvirker utvalget av det som presenteres og hvordan det presenteres. Disse valgene skal huskes selv om siden reloades.
-- ~~En bruker skal kunne velge favoritter ved å for eksempel klikke på en stjerne eller et hjerte. Valg skal huskes selv om nettleser avsluttes og startes igjen.~~
-- Siden skal ha responsivt design og være utformet med tanke på både vanlig desktop skjerm og mobil enhet (tilpasse seg mindre skjerm som kan være både i høyde og breddeformat).
-- Siden skal ha en estetisk og ryddig utforming (dette er subjektivt, men vi er ute etter at dere skal ha lagt ned litt arbeid i stiling av siden).
-
-## Tekniske krav:
-
-- ~~Løsningen er basert på Typescript og React~~
-- ~~Viser bruk av React state og props~~
-- ~~Løsningen henter data/informasjon fra et REST API og bruker TanStack Query~~
-- ~~Bruker HTML Web storage api localstorage eller webstorage, alternativt kan dere også bruke IndexedDB API’et.~~
-- ~~Bruker React Router~~
-- Løsningen har responsivt design
-
-## Utvikling og testing
-
-- ~~Bruk av Node.js v20.5+ og npm v9.8+~~
-- ~~React prosjekt satt opp med Vite 4.4+, bruk npm create vite@latest, velg prosjekttypen for React -> Typescript~~
-- ~~Bruk av git og kildekoden på gitlab.stud.ntnu.no,~~
-- ~~bruk av branching og issues for å styre utviklingsoppgaver og lenke commits og merge til issues.~~
-- ~~Bruk av linting og prettify~~
-- Oppsett og komme i gang med testing:
-  - ~~Bruk av Vitest~~
-  - Vise snapshot test
-  - Testing av egne komponent (teste på prop og state, brukerinteraksjon).
-  - Bruk av mocking så testene ikke henter data
-  - Applikasjonen skal være testet på mainstream weblesere og mobile enheter (selvsagt kun basert på det gruppa har tilgjengelig av enheter)
-  - Dokumentasjon i form av readme på gitlab som dokumenterer og forklarer valg, dokumenterer hva som er testet
-
-## Levering
-
-- Koden levere som den er på gitlab
-- Applikasjonen installert under Apache på gruppas virtuelle maskin
-
-### Vurderingskriterier for første innlevering (teller 10%)
-
-- Løsningen skal svare på alle funksjonelle og tekniske krav, samt det som er beskrevet under utvikling og testing.
-- Websiden skal ikke ha åpenbare feil som lett oppdages manuelt ved bruk
-- Ingen feilmeldinger eller advarsler ved linting, testing eller kjøring
-- Ingen unødvendige kall til REST API’et
-
-### Vurderingskriterier ved sluttvurdering (teller 5%)
-
-- Her vurderer vi sluttresultatet uavhengig av om det er jobbet videre med det eller ikke
-- Hvis det er vesentlige mangler og kritikk til første innlevering er adressert og løst
-- Hvor godt løsning og dokumentasjon viser kunnskap og erfaring
-- Dokumentasjonen skal beskrive hva som evt. er forbedret og jobbet med siden første innlevering
+In order to support mobile devices and standard computer screens we chose to apply a responsive design using media queries and flexbox. This is because most users will access our website through their phones or computers.
