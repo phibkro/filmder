@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useNumberStore } from "../hooks/useNumberStore";
-import Carousel from "../components/Carousel";
 import Card from "../components/Card";
-import { MovieListResult } from "../utils/types";
-import { createPosterUrl } from "../utils/lib";
+import Carousel from "../components/Carousel";
+import { useNumberStore } from "../hooks/useNumberStore";
 import { useText } from "../hooks/useText";
+import { createPosterUrl } from "../utils/lib";
+import { MovieListResult } from "../utils/types";
 
 interface MovieAppProps {
   movieListResults: MovieListResult[];
@@ -29,7 +29,6 @@ export default function MovieApp({ movieListResults }: MovieAppProps) {
         return movieListResults;
     }
   });
-  const showOptions = ["all", "favorites", "no-favorites"];
   const selectOptions = [
     {
       value: "all",

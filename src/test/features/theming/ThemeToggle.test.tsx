@@ -1,21 +1,20 @@
-import { describe, it, expect, afterEach } from "vitest";
 import { cleanup, render } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import ThemeToggle from "../../../features/theming/themeToggle";
-import { ThemeProvider } from "../../../features/theming/themeProvider";
 
 afterEach(cleanup);
-
-// TODO: test props and state
+beforeEach(() => {
+  render(<ThemeToggle />);
+});
+// TODO: mock context environment
 describe("ThemeToggle", () => {
-  it("should work", () => {
-    render();
-  });
+  it.todo("should set theme on click", () => {});
 });
 
-it("matches snapshot", async () => {
-  const result = render();
-  await expect(result).toMatchInlineSnapshot(`
+it("matches snapshot", () => {
+  const result = render(<ThemeToggle />);
+  expect(result).toMatchInlineSnapshot(`
     {
       "asFragment": [Function],
       "baseElement": <body>
