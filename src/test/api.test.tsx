@@ -22,3 +22,5 @@ describe("usePopularMovies", async () => {
 
   await waitFor(() => expect(result.current.isSuccess).toBe(true));
 });
+
+// see https://tanstack.com/query/latest/docs/react/guides/testing
