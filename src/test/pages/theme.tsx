@@ -1,4 +1,4 @@
-import { ThemeToggle } from "../../features/theming/themeToggle";
+import ThemeToggle from "../../features/theming/themeToggle";
 
 export default function ThemeTest() {
   return (
