@@ -1,9 +1,8 @@
-import { describe, it, expect, afterEach, vi, beforeEach } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import data from "../mock/barbie.json";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import Card from "../../components/Card";
 import { createPosterUrl } from "../../utils/lib";
+import data from "../mock/barbie.json";
 
 afterEach(cleanup);
 
