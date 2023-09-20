@@ -1,46 +1,40 @@
-.wrapper{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-  margin: 5%;
+.movie-overview h2 {
+  font-size: 3rem;
 }
-.item1{
-	flex-shrink: 3;
+.movie-overview h3 {
+  font-size: 1.5rem;
 }
-.overviewWrapper{
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	text-align: left;
+.movie-overview {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  gap: 3em;
+
+  width: 85vw;
 }
-.overviewWrapper div{
-	margin-bottom: 20px;
+.movie-overview section {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
-.wrapper img{
-	width: 70%;
-	margin: auto;
-	display: block;
-}
-.overviewWrapper h3{
-	margin-bottom: 5px;
-}
-.overviewWrapper p{
-	margin-top: 5px;
-}
-.spesificInfoWrapper{
-	display: flex;
-	flex-direction: row;
-	gap: 5%;
+.movie-overview section > div {
+  display: flex;
+  gap: 1em;
 }
 
-@media (max-width: 1200px) {
-	.wrapper{
-		flex-direction: column;
-	}
-	.spesificInfoWrapper{
-		flex-direction: column;
-	}
-	.item1 img{
-		width: 50%;
-	}
+@media (max-width: 1024px) {
+  .movie-overview section > div {
+    display: flex;
+    flex-direction: column;
   }
+}
+@media (max-width: 700px) {
+  .movie-overview {
+    flex-direction: column;
+  }
+}
+@media (max-width: 450px) {
+  .movie-overview section > div {
+    flex-direction: column;
+  }
+}
