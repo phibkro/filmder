@@ -1,5 +1,5 @@
-import { describe, it, expect, afterEach } from "vitest";
 import { cleanup, render, renderHook } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import {
   ThemeProvider,
@@ -7,17 +7,18 @@ import {
 } from "../../../features/theming/themeProvider";
 
 afterEach(cleanup);
-
-// TODO: test props and state
+beforeEach(() => {
+  renderHook(() => useTheme());
+});
+// TODO: mock context environment
 describe("useTheme with ThemeProvider", () => {
-  it("should work", () => {
-    render();
-  });
+  it.todo("should be able to fetch theme");
+  it.todo("should be able to change theme");
 });
 
-it("matches snapshot", async () => {
-  const result = render();
-  await expect(result).toMatchInlineSnapshot(`
+it("matches snapshot", () => {
+  const result = render(<ThemeProvider />);
+  expect(result).toMatchInlineSnapshot(`
     {
       "asFragment": [Function],
       "baseElement": <body>
