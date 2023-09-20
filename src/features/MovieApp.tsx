@@ -9,7 +9,7 @@ import { useText } from "../hooks/useText";
 interface MovieAppProps {
   movieListResults: MovieListResult[];
 }
-function MovieApp({ movieListResults }: MovieAppProps) {
+export default function MovieApp({ movieListResults }: MovieAppProps) {
   const { numberStore, addToStore, removeFromStore } =
     useNumberStore("favorites");
   const [show, setShow] = useText("show", "all");
@@ -124,5 +124,3 @@ function MovieApp({ movieListResults }: MovieAppProps) {
     </>
   );
 }
-
-export default MovieApp;
