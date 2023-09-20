@@ -1,24 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 
-import Carousel from "../components/Carousel";
-import { getPopularMovies } from "../utils/apiCalls";
+import MovieApp from "../features/MovieApp";
+import { getPopularMovies } from "../server/api";
 
 function Root() {
-  const { isLoading, isError, data, error } = useQuery({
+  const { isLoading, isError, isSuccess, data, error } = useQuery({
     queryKey: ["popularMovies"],
     queryFn: getPopularMovies,
   });
-  console.log(data);
+  if (isError) {
+    console.error(error);
+  }
   return (
     <>
-      <h1>Hello world!</h1>
-      {isLoading && <span>Loading...</span>}
-      {/*TODO: fix ts error error*/}
-      {/*@ts-ignore*/}
-      {isError && <span>Error: {error.message}</span>}
-      <p>{data?.status_message}</p>
-
-      {data && <Carousel results={data?.results} />}
+      {isLoading && <span>...loading</span>}
+      {isSuccess && <MovieApp movieListResults={data.results} />}
     </>
   );
 }
