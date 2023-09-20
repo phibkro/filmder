@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach } from "vitest";
 import { cleanup, render } from "@testing-library/react";
 
-import { MovieOverview } from "../../components/MovieOverview";
+import MovieOverview from "../../components/MovieOverview";
 
 afterEach(cleanup);
 
