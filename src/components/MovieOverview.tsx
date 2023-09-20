@@ -1,5 +1,5 @@
-import { MovieDetails } from "../utils/types";
 import { createPosterUrl } from "../utils/lib";
+import { MovieDetails } from "../utils/types";
 import Card from "./Card";
 
 interface MovieOverviewProps {

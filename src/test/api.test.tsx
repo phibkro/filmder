@@ -1,7 +1,9 @@
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { renderHook, waitFor } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
-import { usePopularMovies, useMovieById } from "../server/api";
+import { describe, expect } from "vitest";
+import { useMovieById, usePopularMovies } from "../server/api";
+
+// TODO
 
 describe("usePopularMovies", async () => {
   const queryClient = new QueryClient();

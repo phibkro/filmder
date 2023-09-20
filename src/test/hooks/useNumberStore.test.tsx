@@ -1,5 +1,5 @@
-import { describe, it, expect, afterAll } from "vitest";
 import { cleanup, renderHook } from "@testing-library/react";
+import { afterAll, describe, expect, it } from "vitest";
 import { useNumberStore } from "../../hooks/useNumberStore";
 
 const key = "numbers";

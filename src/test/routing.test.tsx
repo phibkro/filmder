@@ -2,9 +2,8 @@ import { render } from "@testing-library/react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { expect, it } from "vitest";
 import { mainRoutes } from "../routes/mainRoutes";
-import { testRoutes } from "../routes/testRoutes";
 
-const router = createBrowserRouter([...mainRoutes, testRoutes]);
+const router = createBrowserRouter([...mainRoutes]);
 
 it("matches snapshot", () => {
   const result = render(<RouterProvider router={router} />);

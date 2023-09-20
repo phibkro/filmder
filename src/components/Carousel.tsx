@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 interface CarouselProps {
   items: JSX.Element[];

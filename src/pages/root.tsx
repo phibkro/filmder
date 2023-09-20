@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getPopularMovies } from "../server/api";
 import MovieApp from "../features/MovieApp";
+import { getPopularMovies } from "../server/api";
 
 function Root() {
   const { isLoading, isError, isSuccess, data, error } = useQuery({
