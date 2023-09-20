@@ -9,7 +9,7 @@ function Root() {
     queryFn: getPopularMovies,
   });
   if (isError) {
-    console.log(error);
+    console.error(error);
   }
   return (
     <>

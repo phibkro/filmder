@@ -20,8 +20,12 @@ export default function Card({
   showStar = true,
   size = "medium",
   // Need fallback functions for them to be optional
-  onAdd = () => console.log("card favorited"),
-  onRemove = () => console.log("card unfavorited"),
+  onAdd = () => {
+    // console.log("card favorited");
+  },
+  onRemove = () => {
+    // console.log("card unfavorited");
+  },
 }: CardProps) {
   const [isFavorite, setIsFavorite] = useState(favorited);
   function toggleFavorite() {

@@ -12,7 +12,7 @@ export default function MoviePage() {
     refetchOnWindowFocus: false,
   });
   if (isError) {
-    console.log(error);
+    console.error(error);
   }
   return (
     <>
