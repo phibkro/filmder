@@ -1,25 +1,40 @@
-import { describe, it, expect, afterEach, vi } from "vitest";
-import { cleanup, render } from "@testing-library/react";
+import { describe, it, expect, afterEach, vi, beforeEach } from "vitest";
+import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
+import data from "../mock/barbie.json";
 import Card from "../../components/Card";
+import { createPosterUrl } from "../../utils/lib";
 
 afterEach(cleanup);
 
+const src = createPosterUrl(data.poster_path);
+const alt = "Barbie movie";
+// ARRANGE
+beforeEach(() => {
+  render(<Card src={src} alt={alt} />);
+});
 // TODO: test props and state
-describe("Card", () => {
-  it("loads and displays image", async () => {
-    // ARRANGE
-    render(<Card src="/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Barbie movie" />);
-
-    // ACT
-    await userEvent.click(screen.getByText("Load Greeting"));
-    await screen.findByRole("heading");
-
-    // ASSERT
-    expect(screen.getByRole("heading")).toHaveTextContent("hello there");
-    expect(screen.getByRole("button")).toBeDisabled();
+describe("Card props", () => {
+  it("loads and displays correct image with alt text", async () => {
+    expect(screen.findByRole("img")).toBeTruthy();
+    expect(screen.findByAltText(alt)).toBeTruthy();
   });
+  it.todo("displays star");
+  it.todo("link capability");
+  it.todo("updates on hover to show being able to click it");
+  it.todo("can be initialized favorited");
+  it.todo("can show and hide star");
+  it.todo("mounts with size medium at default");
+  it.todo("can change size");
+  it.todo("calls onAdd and onRemove functions on toggle");
+});
+describe.todo("Card is interactive", () => {
+  it.todo("is clickable");
+  it.todo("redirects to the correct movie page");
+  it.todo("star is toggleable and updates visually");
+});
+describe.todo("Card state", () => {
+  it.todo("can be favorited");
 });
 
 it("matches snapshot", async () => {
