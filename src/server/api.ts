@@ -12,13 +12,8 @@ export async function getPopularMovies() {
   return data;
 }
 export async function getMovieById(movieId: string | undefined) {
-  if (movieId === undefined) {
-    return Promise.reject("movieId is undefined");
-  }
   const response = await fetch(
-    "https://api.themoviedb.org/3/movie/" +
-      movieId.toString() +
-      "?language=en-US",
+    "https://api.themoviedb.org/3/movie/" + movieId + "?language=en-US",
     {
       method: "GET",
       headers: {
@@ -37,10 +32,10 @@ export async function usePopularMovies() {
     refetchOnWindowFocus: false,
   });
 }
-export async function useMovieById(id: string) {
+export async function useMovieById(movieId: string | undefined) {
   return useQuery({
-    queryKey: ["movies", id],
-    queryFn: () => getMovieById(id),
+    queryKey: ["movies", movieId],
+    queryFn: () => getMovieById(movieId),
     refetchOnWindowFocus: false,
   });
 }
