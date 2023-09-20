@@ -2,12 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-
 import { ThemeProvider } from "./features/theming/themeProvider.tsx";
-import "./styles/global.css";
-
 import { mainRoutes } from "./routes/mainRoutes.tsx";
 import { testRoutes } from "./routes/testRoutes.tsx";
+import "./styles/global.css";
 
 const router = createBrowserRouter([...mainRoutes, testRoutes]);
 const queryClient = new QueryClient();

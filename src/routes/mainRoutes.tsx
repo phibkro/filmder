@@ -1,15 +1,22 @@
 import Root from "../pages/root.tsx";
 import ErrorPage from "../pages/error-page.tsx";
 import MoviePage from "../pages/movie-page.tsx";
+import MovieAppLayout from "../layouts/Layout.tsx";
 export const mainRoutes = [
   {
-    path: "project1",
-    element: <Root />,
+    path: import.meta.env.BASE_URL,
+    element: <MovieAppLayout />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "project1/movies/:movieId",
-    element: <MoviePage />,
-    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: import.meta.env.BASE_URL,
+        element: <Root />,
+      },
+      {
+        path: import.meta.env.BASE_URL + "/movies/:movieId",
+        element: <MoviePage />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
 ];

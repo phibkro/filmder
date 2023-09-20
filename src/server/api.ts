@@ -1,3 +1,5 @@
+import { useQuery } from "@tanstack/react-query";
+
 export async function getPopularMovies() {
   const response = await fetch("https://api.themoviedb.org/3/movie/popular", {
     method: "GET",
@@ -23,8 +25,22 @@ export async function getMovieById(movieId: string | undefined) {
         accept: "application/json",
         Authorization: import.meta.env.VITE_API_READ_ACCESS_TOKEN,
       },
-    }
+    },
   );
   const data = response.json();
   return data;
+}
+export async function usePopularMovies() {
+  return useQuery({
+    queryKey: ["popularMovies"],
+    queryFn: getPopularMovies,
+    refetchOnWindowFocus: false,
+  });
+}
+export async function useMovieById(id: string) {
+  return useQuery({
+    queryKey: ["movies", id],
+    queryFn: () => getMovieById(id),
+    refetchOnWindowFocus: false,
+  });
 }

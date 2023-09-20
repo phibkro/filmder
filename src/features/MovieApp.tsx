@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useBoolean } from "../hooks/useBoolean";
 import { useNumberStore } from "../hooks/useNumberStore";
 import Carousel from "../components/Carousel";
 import Card from "../components/Card";
 import { MovieListResult } from "../utils/types";
+import { createPosterUrl } from "../utils/lib";
+import { useText } from "../hooks/useText";
 
 interface MovieAppProps {
   movieListResults: MovieListResult[];
@@ -11,33 +12,77 @@ interface MovieAppProps {
 function MovieApp({ movieListResults }: MovieAppProps) {
   const { numberStore, addToStore, removeFromStore } =
     useNumberStore("favorites");
-  const [isFavoritesVisible, toggleIsFavoritesVisible] =
-    useBoolean("isfavoritesvisible");
-  const [results, setResults] = useState(
-    isFavoritesVisible
-      ? movieListResults
-      : movieListResults.filter((result) => numberStore.includes(result.id)),
-  );
-  const handleFavorites = () => {
-    if (isFavoritesVisible) {
-      setResults(movieListResults);
-    } else {
-      setResults(
-        movieListResults.filter((result) => numberStore.includes(result.id)),
-      );
+  const [show, setShow] = useText("show", "all");
+  const [results, setResults] = useState(() => {
+    switch (show) {
+      case "all":
+        return movieListResults;
+      case "favorites":
+        return movieListResults.filter((result) =>
+          numberStore.includes(result.id),
+        );
+      case "no-favorites":
+        return movieListResults.filter(
+          (result) => !numberStore.includes(result.id),
+        );
+      default:
+        return movieListResults;
     }
-    toggleIsFavoritesVisible();
+  });
+  const showOptions = ["all", "favorites", "no-favorites"];
+  const selectOptions = [
+    {
+      value: "all",
+      label: "show all",
+    },
+    {
+      value: "no-favorites",
+      label: "hide favorites",
+    },
+    {
+      value: "favorites",
+      label: "show only favorites",
+    },
+  ];
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log("handlechange");
+    switch (e.target.value) {
+      case "all":
+        setResults(movieListResults);
+        setShow("all");
+        console.log("all");
+        break;
+      case "favorites":
+        setResults(
+          movieListResults.filter((result) => numberStore.includes(result.id)),
+        );
+        setShow("favorites");
+        console.log("favorites");
+
+        break;
+      case "no-favorites":
+        setResults(
+          movieListResults.filter((result) => !numberStore.includes(result.id)),
+        );
+        setShow("no-favorites");
+        console.log("no-favorites");
+
+        break;
+      default:
+        setResults(movieListResults);
+        setShow("all");
+        console.log("default");
+
+        break;
+    }
   };
   return (
     <>
       <main>
-        <h1>Filmder</h1>
         <Carousel
           items={movieListResults.map((result) => (
             <Card
-              src={
-                "https://image.tmdb.org/t/p/" + "original" + result.poster_path
-              }
+              src={createPosterUrl(result.poster_path)}
               alt={"Poster for the movie" + result.title}
               href={"movies/" + result.id}
               size="large"
@@ -48,20 +93,23 @@ function MovieApp({ movieListResults }: MovieAppProps) {
             />
           ))}
         />
-        <button onClick={handleFavorites}>
-          {isFavoritesVisible && "hide "}
-          {!isFavoritesVisible && "show "}
-          favorites
-        </button>
+        <select
+          name="filmList"
+          id="filmList"
+          defaultValue={show}
+          onChange={(e) => handleChange(e)}
+        >
+          {selectOptions.map(({ value, label }, i) => (
+            <option value={value} key={i}>
+              {label}
+            </option>
+          ))}
+        </select>
         <ul className="filmList">
           {results.map((result) => (
             <li key={result.id}>
               <Card
-                src={
-                  "https://image.tmdb.org/t/p/" +
-                  "original" +
-                  result.poster_path
-                }
+                src={createPosterUrl(result.poster_path)}
                 alt={"Poster for the movie" + result.title}
                 href={"movies/" + result.id}
                 size="medium"
