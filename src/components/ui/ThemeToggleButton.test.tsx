@@ -1,11 +1,11 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
-import ThemeToggle from "./themeToggle";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 afterEach(cleanup);
 beforeEach(() => {
-  render(<ThemeToggle />);
+  render(<ThemeToggleButton />);
 });
 // TODO: mock context environment
 describe("ThemeToggle", () => {
@@ -13,7 +13,7 @@ describe("ThemeToggle", () => {
 });
 
 it("matches snapshot", () => {
-  const result = render(<ThemeToggle />);
+  const result = render(<ThemeToggleButton />);
   expect(result).toMatchInlineSnapshot(`
     {
       "asFragment": [Function],

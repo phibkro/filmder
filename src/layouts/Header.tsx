@@ -1,4 +1,4 @@
-import ThemeToggle from "@/features/theming/themeToggle";
+import ThemeToggleButton from "@/components/ui/ThemeToggleButton";
 import { Home } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ export default function Header() {
         </li>
         <h1>Filmder</h1>
         <li>
-          <ThemeToggle iconSize="100%" />
+          <ThemeToggleButton iconSize="100%" />
         </li>
       </nav>
     </header>

@@ -1,10 +1,10 @@
+import { useTheme } from "@/features/themeProvider";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "./themeProvider";
 
 interface Props {
   iconSize?: string;
 }
-export default function ThemeToggle({ iconSize = "24px" }: Props) {
+export default function ThemeToggleButton({ iconSize = "24px" }: Props) {
   const { theme, setTheme } = useTheme();
   return (
     <>
