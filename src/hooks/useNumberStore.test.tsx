@@ -1,6 +1,6 @@
 import { cleanup, renderHook } from "@testing-library/react";
 import { afterAll, describe, expect, it } from "vitest";
-import { useNumberStore } from "../../hooks/useNumberStore";
+import { useNumberStore } from "./useNumberStore";
 
 const key = "numbers";
 const values = [123456, 654321];

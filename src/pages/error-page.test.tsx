@@ -1,17 +1,16 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import Layout from "../../layouts/Layout";
+import ErrorPage from "./error-page";
 
 afterEach(cleanup);
 beforeEach(() => {
-  render(<Layout />);
+  render(<ErrorPage />);
 });
-describe("Layout", () => {
+describe("ErrorPage", () => {
   it.todo("should render properly");
-  it.todo("should render children");
 });
 
 it("matches snapshot", () => {
-  const result = render(<Layout />);
+  const result = render(<ErrorPage />);
   expect(result).toMatchInlineSnapshot();
 });

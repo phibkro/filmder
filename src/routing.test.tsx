@@ -1,26 +1,75 @@
-import { cleanup, render } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { render } from "@testing-library/react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { expect, it } from "vitest";
+import { mainRoutes } from "./routes/mainRoutes";
 
-import ThemeToggle from "../../../features/theming/themeToggle";
-
-afterEach(cleanup);
-beforeEach(() => {
-  render(<ThemeToggle />);
-});
-// TODO: mock context environment
-describe("ThemeToggle", () => {
-  it.todo("should set theme on click", () => {});
-});
+const router = createBrowserRouter([...mainRoutes]);
 
 it("matches snapshot", () => {
-  const result = render(<ThemeToggle />);
+  const result = render(<RouterProvider router={router} />);
   expect(result).toMatchInlineSnapshot(`
     {
       "asFragment": [Function],
       "baseElement": <body>
-        <div />
+        <div>
+          <h2>
+            Unexpected Application Error!
+          </h2>
+          <h3
+            style="font-style: italic;"
+          >
+            404 Not Found
+          </h3>
+          <p>
+            💿 Hey developer 👋
+          </p>
+          <p>
+            You can provide a way better UX than this when your app throws errors by providing your own 
+            <code
+              style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+            >
+              ErrorBoundary
+            </code>
+             or
+             
+            <code
+              style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+            >
+              errorElement
+            </code>
+             prop on your route.
+          </p>
+        </div>
       </body>,
-      "container": <div />,
+      "container": <div>
+        <h2>
+          Unexpected Application Error!
+        </h2>
+        <h3
+          style="font-style: italic;"
+        >
+          404 Not Found
+        </h3>
+        <p>
+          💿 Hey developer 👋
+        </p>
+        <p>
+          You can provide a way better UX than this when your app throws errors by providing your own 
+          <code
+            style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+          >
+            ErrorBoundary
+          </code>
+           or
+           
+          <code
+            style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+          >
+            errorElement
+          </code>
+           prop on your route.
+        </p>
+      </div>,
       "debug": [Function],
       "findAllByAltText": [Function],
       "findAllByDisplayValue": [Function],
@@ -75,5 +124,3 @@ it("matches snapshot", () => {
     }
   `);
 });
-
-// see https://testing-library.com/docs/react-testing-library/api/#render

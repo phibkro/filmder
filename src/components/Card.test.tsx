@@ -1,8 +1,8 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import Card from "../../components/Card";
-import { createPosterUrl } from "../../utils/lib";
-import data from "../mock/barbie.json";
+import data from "../mock-data/barbie.json";
+import { createPosterUrl } from "../utils/lib";
+import Card from "./Card";
 
 afterEach(cleanup);
 
@@ -10,7 +10,7 @@ const src = createPosterUrl(data.poster_path);
 const alt = "Barbie movie";
 // ARRANGE
 beforeEach(() => {
-  render(<Card src={src} alt={alt} />);
+  render(<Card src={src} alt={alt} data-testid="card" />);
 });
 // TODO: test props and state
 describe("Card props", () => {
@@ -18,7 +18,7 @@ describe("Card props", () => {
     expect(screen.findByRole("img")).toBeTruthy();
     expect(screen.findByAltText(alt)).toBeTruthy();
   });
-  it.todo("displays star");
+  it.todo("displays star", () => {});
   it.todo("link capability");
   it.todo("updates on hover to show being able to click it");
   it.todo("can be initialized favorited");
