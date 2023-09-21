@@ -8,12 +8,12 @@ export default function Header() {
       <nav>
         <li>
           <Link to={import.meta.env.BASE_URL}>
-            <Home size={48} />
+            <Home size={"100%"} />
           </Link>
         </li>
         <h1>Filmder</h1>
         <li>
-          <ThemeToggle />
+          <ThemeToggle iconSize="100%" />
         </li>
       </nav>
     </header>
