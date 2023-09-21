@@ -133,6 +133,15 @@ nav {
 .carousel {
   display: flex;
   align-items: center;
+
+  & .chevron {
+    @media (orientation: landscape) {
+      height: 10vh;
+    }
+    @media (orientation: portrait) {
+      width: 10vw;
+    }
+  }
 }
 .filmList {
   list-style: none;
