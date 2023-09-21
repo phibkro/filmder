@@ -1,0 +1,139 @@
+.hover {
+  cursor: pointer;
+}
+.hover:hover {
+  color: var(--primary);
+}
+.fill {
+  fill: var(--foreground);
+}
+/* Layout styles */
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+/* Component styles */
+header {
+  margin-top: 1em;
+  & svg {
+    @media (orientation: landscape) {
+      height: 5vh;
+    }
+    @media (orientation: portrait) {
+      width: 10vw;
+    }
+  }
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.carousel {
+  display: flex;
+  align-items: center;
+
+  & .chevron {
+    @media (orientation: landscape) {
+      height: 10vh;
+    }
+    @media (orientation: portrait) {
+      width: 10vw;
+    }
+  }
+}
+.filmList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+
+  &.hover img:hover {
+    outline: var(--foreground) 2px solid;
+    cursor: pointer;
+  }
+
+  @media (orientation: landscape) {
+    & img {
+      &.large {
+        height: 60vh;
+      }
+      &.medium {
+        height: 40vh;
+      }
+      &.small {
+        height: 20vh;
+      }
+    }
+    & .star {
+      &.large {
+        height: 8vh;
+      }
+      &.medium {
+        height: 6vh;
+      }
+      &.small {
+        height: 3vh;
+      }
+    }
+  }
+  @media (orientation: portrait) {
+    & img {
+      &.large {
+        width: 60vw;
+      }
+      &.medium {
+        width: 40vw;
+      }
+      &.small {
+        width: 20vw;
+      }
+    }
+    & .star {
+      &.large {
+        width: 15vw;
+      }
+      &.medium {
+        width: 10vw;
+      }
+      &.small {
+        width: 7vw;
+      }
+    }
+  }
+}
+
+button {
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--accent);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  &:hover {
+    border-color: #646cff;
+  }
+  &:focus,
+  :focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+}
