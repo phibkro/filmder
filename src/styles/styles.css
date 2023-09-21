@@ -57,6 +57,7 @@ nav {
   align-items: center;
 
   & .chevron {
+    transition: color 0.25s;
     @media (orientation: landscape) {
       height: 10vh;
     }
@@ -85,9 +86,8 @@ nav {
 
   & img {
     aspect-ratio: 2/3;
-  }
-  @media (orientation: landscape) {
-    & img {
+    transition: outline-color 0.25s;
+    @media (orientation: landscape) {
       &.large {
         height: 60vh;
       }
@@ -98,20 +98,7 @@ nav {
         height: 20vh;
       }
     }
-    & .star {
-      &.large {
-        height: 8vh;
-      }
-      &.medium {
-        height: 6vh;
-      }
-      &.small {
-        height: 3vh;
-      }
-    }
-  }
-  @media (orientation: portrait) {
-    & img {
+    @media (orientation: portrait) {
       &.large {
         width: 60vw;
       }
@@ -122,7 +109,22 @@ nav {
         width: 20vw;
       }
     }
-    & .star {
+  }
+  & .star {
+    transition: color 0.25s;
+    @media (orientation: landscape) {
+      &.large {
+        height: 8vh;
+      }
+      &.medium {
+        height: 6vh;
+      }
+      &.small {
+        height: 3vh;
+      }
+    }
+
+    @media (orientation: portrait) {
       &.large {
         width: 15vw;
       }
