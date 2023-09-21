@@ -32,13 +32,12 @@ nav {
   }
 }
 
-button {
+/* Component styles */
+.theme-toggle-button {
+  display: flex;
   border-radius: var(--radius);
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  padding: 0.5em 1em;
   background-color: var(--accent);
   color: var(--foreground);
   cursor: pointer;
@@ -52,8 +51,6 @@ button {
     outline: 4px auto -webkit-focus-ring-color;
   }
 }
-
-/* Component styles */
 .movieApp {
   display: flex;
   flex-direction: column;
