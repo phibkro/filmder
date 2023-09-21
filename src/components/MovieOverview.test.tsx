@@ -1,6 +1,6 @@
+import data from "@/mock-data/barbie.json";
 import { cleanup, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import data from "../mock-data/barbie.json";
 
 afterEach(cleanup);
 

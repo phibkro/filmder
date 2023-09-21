@@ -1,6 +1,6 @@
+import ThemeToggle from "@/features/theming/themeToggle";
 import { Home } from "lucide-react";
 import { Link } from "react-router-dom";
-import ThemeToggle from "../features/theming/themeToggle";
 
 export default function Header() {
   return (

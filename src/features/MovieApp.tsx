@@ -1,10 +1,10 @@
+import Card from "@/components/Card";
+import Carousel from "@/components/Carousel";
+import { useNumberStore } from "@/hooks/useNumberStore";
+import { useText } from "@/hooks/useText";
+import { createPosterUrl } from "@/utils/lib";
+import { MovieListResult } from "@/utils/types";
 import { useState } from "react";
-import Card from "../components/Card";
-import Carousel from "../components/Carousel";
-import { useNumberStore } from "../hooks/useNumberStore";
-import { useText } from "../hooks/useText";
-import { createPosterUrl } from "../utils/lib";
-import { MovieListResult } from "../utils/types";
 
 interface MovieAppProps {
   movieListResults: MovieListResult[];

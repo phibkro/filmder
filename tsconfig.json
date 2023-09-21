@@ -21,9 +21,10 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Recognize import.meta.vitest */
-    "types": [
-      "vitest/importMeta"
-    ]
+    "types": ["vitest/importMeta"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
