@@ -1,3 +1,4 @@
+/* Utility classes */
 .hover {
   cursor: pointer;
 }
@@ -7,21 +8,20 @@
 .fill {
   fill: var(--foreground);
 }
-/* Layout styles */
+/* General styles */
 #root {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
-main {
+nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  gap: 2em;
-}
-/* Component styles */
-header {
   margin-top: 1em;
+  & h1 {
+    font-size: 2.5rem;
+  }
   & svg {
     @media (orientation: landscape) {
       height: 5vh;
@@ -31,10 +31,34 @@ header {
     }
   }
 }
-nav {
+
+button {
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--accent);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  &:hover {
+    border-color: #646cff;
+  }
+  &:focus,
+  :focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+}
+
+/* Component styles */
+.movieApp {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
+  gap: 2em;
 }
 .carousel {
   display: flex;
@@ -114,26 +138,5 @@ nav {
         width: 7vw;
       }
     }
-  }
-}
-
-button {
-  border-radius: var(--radius);
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--accent);
-  color: var(--foreground);
-  cursor: pointer;
-  transition: border-color 0.25s;
-
-  &:hover {
-    border-color: #646cff;
-  }
-  &:focus,
-  :focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
   }
 }
