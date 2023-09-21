@@ -74,7 +74,7 @@ export default function MovieApp({ movieListResults }: MovieAppProps) {
   };
   return (
     <>
-      <main>
+      <main className="movieApp">
         <Carousel
           items={movieListResults.map((result) => (
             <Card
