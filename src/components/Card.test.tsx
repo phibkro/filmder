@@ -1,66 +1,70 @@
-import { cleanup, render } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
-import Carousel from "../../components/Carousel";
-import data from "../mock/popularMovies.json";
+import data from "@/mock-data/barbie.json";
+import { createPosterUrl } from "@/utils/lib";
+import { cleanup, render, screen } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import Card from "./Card";
 
 afterEach(cleanup);
-const items = data.results.map((result) => <li>{result.original_title}</li>);
 
-describe("Carousel props", () => {
-  it("should render with items", () => {
-    render(<Carousel items={items} />);
+const src = createPosterUrl(data.poster_path);
+const alt = "Barbie movie";
+// ARRANGE
+beforeEach(() => {
+  render(<Card src={src} alt={alt} data-testid="card" />);
+});
+// TODO: test props and state
+describe("Card props", () => {
+  it("loads and displays correct image with alt text", async () => {
+    expect(screen.findByRole("img")).toBeTruthy();
+    expect(screen.findByAltText(alt)).toBeTruthy();
   });
-  it.todo("should render with left and right buttons");
+  it.todo("displays star", () => {});
+  it.todo("link capability");
+  it.todo("updates on hover to show being able to click it");
+  it.todo("can be initialized favorited");
+  it.todo("can show and hide star");
+  it.todo("mounts with size medium at default");
+  it.todo("can change size");
+  it.todo("calls onAdd and onRemove functions on toggle");
 });
-describe("Carousel state", () => {
-  it.todo("should update its visible carousel item based on index state");
-  it.todo("should update index on click");
-  it.todo("index should be able to loop");
+describe.todo("Card is interactive", () => {
+  it.todo("is clickable");
+  it.todo("redirects to the correct movie page");
+  it.todo("star is toggleable and updates visually");
+});
+describe.todo("Card state", () => {
+  it.todo("can be favorited", () => {});
 });
 
-it("matches snapshot", () => {
-  const result = render(<Carousel items={items} />);
-  expect(result).toMatchInlineSnapshot(`
+it("matches snapshot", async () => {
+  const result = render(<Card src={src} alt={alt} />);
+  await expect(result).toMatchInlineSnapshot(`
     {
       "asFragment": [Function],
       "baseElement": <body>
         <div>
           <div
-            class="carousel"
+            class="card"
           >
+            <img
+              alt="Barbie movie"
+              src="/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
+              width="225"
+            />
             <svg
-              class="hover"
+              class="hover star"
               fill="none"
-              height="3.5em"
+              height="2.5em"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               viewBox="0 0 24 24"
-              width="3.5em"
+              width="2.5em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="m15 18-6-6 6-6"
-              />
-            </svg>
-            <li>
-              Talk to Me
-            </li>
-            <svg
-              class="hover"
-              fill="none"
-              height="3.5em"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="3.5em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="m9 18 6-6-6-6"
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
               />
             </svg>
           </div>
@@ -68,41 +72,27 @@ it("matches snapshot", () => {
       </body>,
       "container": <div>
         <div
-          class="carousel"
+          class="card"
         >
+          <img
+            alt="Barbie movie"
+            src="/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
+            width="225"
+          />
           <svg
-            class="hover"
+            class="hover star"
             fill="none"
-            height="3.5em"
+            height="2.5em"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
             viewBox="0 0 24 24"
-            width="3.5em"
+            width="2.5em"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="m15 18-6-6 6-6"
-            />
-          </svg>
-          <li>
-            Talk to Me
-          </li>
-          <svg
-            class="hover"
-            fill="none"
-            height="3.5em"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="3.5em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="m9 18 6-6-6-6"
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
             />
           </svg>
         </div>

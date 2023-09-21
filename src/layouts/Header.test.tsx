@@ -1,6 +1,6 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import Header from "../../layouts/Header";
+import Header from "./Header";
 
 afterEach(cleanup);
 beforeEach(() => {

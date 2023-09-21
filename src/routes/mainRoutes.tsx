@@ -1,7 +1,7 @@
-import MovieAppLayout from "../layouts/Layout.tsx";
-import ErrorPage from "../pages/error-page.tsx";
-import MoviePage from "../pages/movie-page.tsx";
-import Root from "../pages/root.tsx";
+import MovieAppLayout from "@/layouts/Layout.tsx";
+import ErrorPage from "@/pages/error-page.tsx";
+import MoviePage from "@/pages/movie-page.tsx";
+import Root from "@/pages/root.tsx";
 export const mainRoutes = [
   {
     path: import.meta.env.BASE_URL,

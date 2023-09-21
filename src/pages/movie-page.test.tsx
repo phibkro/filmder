@@ -1,21 +1,22 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import Root from "../../pages/root";
+import MoviePage from "./movie-page";
 
 afterEach(cleanup);
 beforeEach(() => {
-  render(<Root />);
+  render(<MoviePage />);
 });
-describe("Root props", () => {
+describe("MoviePage", () => {
   it.todo("should render properly");
-  it.todo("should generate items with data movieListResults", () => {});
+  it.todo("should access url parameters", () => {});
 });
-describe.todo("Root renders conditionally", () => {
+describe.todo("MoviePage renders conditionally", () => {
   it.todo("handles errors and displays errors");
   it.todo("has a loading state");
+  it.todo("should dynamically fetch data based on url parameters");
 });
 
 it("matches snapshot", () => {
-  const result = render(<Root />);
+  const result = render(<MoviePage />);
   expect(result).toMatchInlineSnapshot();
 });
