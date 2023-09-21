@@ -36,36 +36,26 @@ export default function Card({
     }
     setIsFavorite(!isFavorite);
   }
-  let imgWidth = 200;
-  let starSize = "3.5em";
-  switch (size) {
-    case "small":
-      imgWidth = 125;
-      starSize = "1.5em";
-      break;
-    case "medium":
-      imgWidth = 225;
-      starSize = "2.5em";
-      break;
-    case "large":
-      imgWidth = 325;
-      starSize = "3.5em";
-      break;
-  }
+
   return (
-    <div className={href ? "cardhover card" : "card"}>
+    <div
+      className={`${href ? "hover" : ""}
+      card`}
+    >
       {href ? (
         <Link to={href}>
-          <img src={src} alt={alt} width={imgWidth} />
+          <img src={src} alt={alt} className={size} />
         </Link>
       ) : (
-        <img src={src} alt={alt} width={imgWidth} />
+        <img src={src} alt={alt} className={size} />
       )}
 
       {showStar && (
         <Star
-          size={starSize}
-          className={isFavorite ? "fill hover star" : "hover star"}
+          size={"100%"}
+          className={`${isFavorite ? "fill" : ""}
+          ${size} 
+          hover star `}
           onClick={toggleFavorite}
         />
       )}

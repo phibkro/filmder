@@ -1,40 +1,29 @@
-.movie-overview h2 {
-  font-size: 3rem;
-}
-.movie-overview h3 {
-  font-size: 1.5rem;
-}
 .movie-overview {
   display: flex;
   flex-direction: row;
   align-self: center;
   gap: 3em;
-
   width: 85vw;
-}
-.movie-overview section {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-.movie-overview section > div {
-  display: flex;
-  gap: 1em;
-}
-
-@media (max-width: 1024px) {
-  .movie-overview section > div {
+  @media (orientation: portrait) {
+    flex-direction: column;
+  }
+  & h2 {
+    font-size: 3rem;
+  }
+  & h3 {
+    font-size: 1.5rem;
+  }
+  & section {
     display: flex;
     flex-direction: column;
-  }
-}
-@media (max-width: 700px) {
-  .movie-overview {
-    flex-direction: column;
-  }
-}
-@media (max-width: 450px) {
-  .movie-overview section > div {
-    flex-direction: column;
+    gap: 1em;
+    & > div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      @media (orientation: portrait) {
+        flex-direction: column;
+      }
+    }
   }
 }

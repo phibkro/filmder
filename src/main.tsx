@@ -5,6 +5,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./features/theming/themeProvider.tsx";
 import { mainRoutes } from "./routes/mainRoutes.tsx";
 import "./styles/global.css";
+import "./styles/reset.css";
+import "./styles/styles.css";
+import "./styles/variables.css";
 
 const router = createBrowserRouter([...mainRoutes]);
 const queryClient = new QueryClient();
