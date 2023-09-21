@@ -88,7 +88,7 @@ nav {
   align-items: center;
   gap: 0.5em;
 
-  &.hover img:hover {
+  img.hover:hover {
     outline: var(--foreground) 2px solid;
     cursor: pointer;
   }

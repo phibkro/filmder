@@ -38,13 +38,14 @@ export default function Card({
   }
 
   return (
-    <div
-      className={`${href ? "hover" : ""}
-      card`}
-    >
+    <div className={`card`}>
       {href ? (
         <Link to={href}>
-          <img src={src} alt={alt} className={size} />
+          <img
+            src={src}
+            alt={alt}
+            className={`${href ? "hover" : ""} ${size}`}
+          />
         </Link>
       ) : (
         <img src={src} alt={alt} className={size} />
