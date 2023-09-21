@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import MovieApp from "@/features/MovieApp";
+import MovieApp from "@/components/MovieApp";
 import { getPopularMovies } from "@/server/api";
 
 function Root() {
