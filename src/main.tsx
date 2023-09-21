@@ -7,7 +7,7 @@ import { appRouter } from "./router.tsx";
 import "./styles/global.css";
 import "./styles/reset.css";
 import "./styles/styles.css";
-import "./styles/variables.css";
+import "./styles/utilities.css";
 
 const queryClient = new QueryClient();
 

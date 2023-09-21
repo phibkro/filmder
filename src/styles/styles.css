@@ -1,13 +1,3 @@
-/* Utility classes */
-.hover {
-  cursor: pointer;
-}
-.hover:hover {
-  color: var(--primary);
-}
-.fill {
-  fill: var(--foreground);
-}
 /* General styles */
 #root {
   display: flex;
