@@ -93,6 +93,9 @@ nav {
     cursor: pointer;
   }
 
+  & img {
+    aspect-ratio: 2/3;
+  }
   @media (orientation: landscape) {
     & img {
       &.large {
