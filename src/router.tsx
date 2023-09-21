@@ -1,18 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
-import MovieAppLayout from "./layouts/Layout";
+import Layout from "./layouts/Layout";
 import ErrorPage from "./pages/error-page";
+import MainPage from "./pages/main-page";
 import MoviePage from "./pages/movie-page";
-import Root from "./pages/root";
 
-export const movieAppRouter = createBrowserRouter([
+const rootPath = import.meta.env.BASE_URL;
+export const appRouter = createBrowserRouter([
   {
-    path: import.meta.env.BASE_URL,
-    element: <MovieAppLayout />,
+    path: rootPath,
+    element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: import.meta.env.BASE_URL,
-        element: <Root />,
+        path: rootPath,
+        element: <MainPage />,
       },
       {
         path: "movies/:movieId",

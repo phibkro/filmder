@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "./features/theming/themeProvider.tsx";
-import { movieAppRouter } from "./router.tsx";
+import { appRouter } from "./router.tsx";
 import "./styles/global.css";
 import "./styles/reset.css";
 import "./styles/styles.css";
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="dark" key="vite-ui-theme">
-        <RouterProvider router={movieAppRouter} />
+        <RouterProvider router={appRouter} />
       </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>,

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import MovieApp from "@/components/MovieApp";
 import { getPopularMovies } from "@/server/api";
 
-function Root() {
+function MainPage() {
   const { isLoading, isError, isSuccess, data, error } = useQuery({
     queryKey: ["popularMovies"],
     queryFn: getPopularMovies,
@@ -19,4 +19,4 @@ function Root() {
   );
 }
 
-export default Root;
+export default MainPage;
