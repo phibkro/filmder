@@ -13,7 +13,7 @@ describe("MovieApp props", () => {
   it.todo("should generate items with data movieListResults", () => {});
 });
 // state
-const user = userEvent.setup();
+// const user = userEvent.setup();
 describe("MovieApp interactivity", () => {
   it("should be able to select movies to show/hide with select button", async () => {
     expect(screen.getByRole("listbox")).toBeTruthy();
