@@ -8,7 +8,6 @@ export default function ThemeToggleButton({ iconSize = "24px" }: Props) {
   const { theme, setTheme } = useTheme();
   return (
     <>
-      {/* TODO: make button find the opposite of system theme */}
       {theme === "dark" && (
         <button
           className="theme-toggle-button"
