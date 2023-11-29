@@ -7,7 +7,7 @@ export default function Header() {
     <header>
       <nav>
         <li>
-          <Link to={import.meta.env.BASE_URL}>
+          <Link to={"/"}>
             <Home size={"100%"} />
           </Link>
         </li>

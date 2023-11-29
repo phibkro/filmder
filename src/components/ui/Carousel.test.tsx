@@ -1,4 +1,4 @@
-import Carousel from "@/components/Carousel";
+import Carousel from "@/components/ui/Carousel";
 import data from "@/mock-data/popularMovies.json";
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
