@@ -6,14 +6,11 @@ import { useParams } from "react-router-dom";
 
 export default function MoviePage() {
   const { movieId } = useParams();
-  const { isLoading, isError, isSuccess, data, error } = useQuery({
+  const { isLoading, isSuccess, data } = useQuery({
     queryKey: ["movies", movieId],
     queryFn: () => getMovieById(movieId),
     refetchOnWindowFocus: false,
   });
-  if (isError) {
-    console.error(error);
-  }
   return (
     <>
       {isLoading && <span>...loading</span>}

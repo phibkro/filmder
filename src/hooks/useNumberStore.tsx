@@ -25,10 +25,6 @@ export function useNumberStore(key: string = "favorites"): {
     (value: number) => {
       if (!numberStore.includes(value)) {
         setNumberStore([...numberStore, value]);
-        // console.log("NumberStore: added " + value);
-      } else {
-        // Disallow duplicates
-        // console.log("NumberStore: value already exists");
       }
     },
     [numberStore],
@@ -37,8 +33,6 @@ export function useNumberStore(key: string = "favorites"): {
     (value: number) => {
       if (numberStore.includes(value)) {
         setNumberStore(numberStore.filter((item) => item !== value));
-      } else {
-        // console.log("NumberStore: nothing to remove");
       }
     },
     [numberStore],

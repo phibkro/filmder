@@ -44,31 +44,26 @@ export default function MovieApp({ movieListResults }: MovieAppProps) {
     },
   ];
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // console.log("handlechange");
     switch (e.target.value) {
       case "all":
         setResults(movieListResults);
         setShow("all");
-        // console.log("all");
         break;
       case "favorites":
         setResults(
           movieListResults.filter((result) => numberStore.includes(result.id)),
         );
         setShow("favorites");
-        // console.log("favorites");
         break;
       case "no-favorites":
         setResults(
           movieListResults.filter((result) => !numberStore.includes(result.id)),
         );
         setShow("no-favorites");
-        // console.log("no-favorites");
         break;
       default:
         setResults(movieListResults);
         setShow("all");
-        // console.log("default");
         break;
     }
   };
