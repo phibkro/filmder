@@ -1,6 +1,6 @@
-import { createPosterUrl } from "../utils/lib";
-import { MovieDetails } from "../utils/types";
-import Card from "./Card";
+import { createPosterUrl } from "@/utils/lib";
+import { MovieDetails } from "@/utils/types";
+import Card from "./ui/Card";
 
 interface MovieOverviewProps {
   movieDetails: MovieDetails;

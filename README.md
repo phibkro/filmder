@@ -30,3 +30,28 @@ We added an overview page for a chosen movie, so that the user will be able to g
 We implemented system where you click on the star under the movie in order to favorite it. We decided to use localStorage for remembering what movies the user favorited, so the user can close and re-open their webbrowser without losing their favorite movies. This also applies to darkmode and the filtering option. Sessionstorage is therefore not relevant to this project because we wanted the page to remember the users choices after closing and reopening the webbrowser.
 
 In order to support mobile devices and standard computer screens we chose to apply a responsive design using media queries and flexbox. This is because most users will access our website through their phones or computers.
+
+## Project- / File structure
+
+### Explanations in the same form as the project structure
+
+- Root of the project contains configuration files for the whole project
+- `index.html` configure metadata here
+  - is technically the main entry point for the application
+- `public/` contains public assets
+- `src/` contains all code for the application
+  - `components/` contains components with more complicated logic
+    - `ui/` contains reusable ui components like buttons and cards
+  - `features/` contains functionality that can't be quite categorized as components, such as themeProvider
+  - `hooks/` contains custom hooks
+  - `layouts/` contains layout components reused by multiple pages
+  - `mock-data/` contains mock data
+  - `pages/` define separate pages in the application
+    - Importantly have the responsibility of data handling and conditional rendering
+  - `server/` contains code relating to data fetching
+  - `styles/` contains styling for all components, layouts & pages
+  - `utils/` contains different utilities
+    - Basically "etc." but for code reused throughout the application
+  - `main.tsx` is the main entry point for our application
+    - Here providers, routing and styles are added to the application
+  - `router.tsx` is where we define our routing

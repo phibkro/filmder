@@ -23,9 +23,17 @@ export default function Carousel({ items }: CarouselProps) {
   }
   return (
     <div className="carousel">
-      <ChevronLeft size={"3.5em"} className="hover" onClick={decrementIndex} />
       {items[index]}
-      <ChevronRight size={"3.5em"} className="hover" onClick={incrementIndex} />
+      <ChevronLeft
+        size={"100%"}
+        className="hover chevron"
+        onClick={decrementIndex}
+      />
+      <ChevronRight
+        size={"100%"}
+        className="hover chevron"
+        onClick={incrementIndex}
+      />
     </div>
   );
 }

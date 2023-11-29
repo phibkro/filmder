@@ -1,8 +1,8 @@
+import MovieOverview from "@/components/MovieOverview";
+import { getMovieById } from "@/server/api";
+import "@/styles/overview.css";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import MovieOverview from "../components/MovieOverview";
-import { getMovieById } from "../server/api";
-import "../styles/overview.css";
 
 export default function MoviePage() {
   const { movieId } = useParams();

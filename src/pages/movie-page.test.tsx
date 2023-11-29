@@ -1,6 +1,6 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import MoviePage from "../../pages/movie-page";
+import MoviePage from "./movie-page";
 
 afterEach(cleanup);
 beforeEach(() => {

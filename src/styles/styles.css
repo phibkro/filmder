@@ -1,0 +1,137 @@
+/* General styles */
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1em;
+  & h1 {
+    font-size: 2.5rem;
+  }
+  & svg {
+    @media (orientation: landscape) {
+      height: 5vh;
+    }
+    @media (orientation: portrait) {
+      width: 10vw;
+    }
+  }
+}
+
+/* Component styles */
+.theme-toggle-button {
+  display: flex;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  padding: 0.5em 1em;
+  background-color: var(--accent);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  &:hover {
+    border-color: #646cff;
+  }
+  &:focus,
+  :focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+}
+.movieApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  & select {
+    text-align: center;
+    height: 2em;
+    width: 20ch;
+  }
+}
+.carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  & .card {
+    flex-basis: 100%;
+  }
+  & .chevron {
+    transition: color 0.25s;
+    flex-basis: 10%;
+  }
+}
+.filmList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+
+  img.hover:hover {
+    outline: var(--foreground) 2px solid;
+    cursor: pointer;
+  }
+
+  & img {
+    aspect-ratio: 2/3;
+    transition: outline-color 0.25s;
+    @media (orientation: landscape) {
+      &.large {
+        height: 60vh;
+      }
+      &.medium {
+        height: 40vh;
+      }
+      &.small {
+        height: 20vh;
+      }
+    }
+    @media (orientation: portrait) {
+      &.large {
+        width: 60vw;
+      }
+      &.medium {
+        width: 40vw;
+      }
+      &.small {
+        width: 20vw;
+      }
+    }
+  }
+  & .star {
+    transition: color 0.25s;
+    @media (orientation: landscape) {
+      &.large {
+        height: 8vh;
+      }
+      &.medium {
+        height: 6vh;
+      }
+      &.small {
+        height: 3vh;
+      }
+    }
+
+    @media (orientation: portrait) {
+      &.large {
+        width: 15vw;
+      }
+      &.medium {
+        width: 10vw;
+      }
+      &.small {
+        width: 7vw;
+      }
+    }
+  }
+}

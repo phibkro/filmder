@@ -1,10 +1,10 @@
+import { useNumberStore } from "@/hooks/useNumberStore";
+import { useText } from "@/hooks/useText";
+import { createPosterUrl } from "@/utils/lib";
+import { MovieListResult } from "@/utils/types";
 import { useState } from "react";
-import Card from "../components/Card";
-import Carousel from "../components/Carousel";
-import { useNumberStore } from "../hooks/useNumberStore";
-import { useText } from "../hooks/useText";
-import { createPosterUrl } from "../utils/lib";
-import { MovieListResult } from "../utils/types";
+import Card from "./ui/Card";
+import Carousel from "./ui/Carousel";
 
 interface MovieAppProps {
   movieListResults: MovieListResult[];
@@ -74,7 +74,7 @@ export default function MovieApp({ movieListResults }: MovieAppProps) {
   };
   return (
     <>
-      <main>
+      <main className="movieApp">
         <Carousel
           items={movieListResults.map((result) => (
             <Card

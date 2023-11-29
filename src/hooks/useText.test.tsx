@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import { afterAll, describe, expect, it } from "vitest";
-import { useText } from "../../hooks/useText";
+import { useText } from "./useText";
 
 const key = "key";
 const value = "value";

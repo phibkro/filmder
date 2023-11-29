@@ -1,10 +1,10 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import Root from "../../pages/root";
+import MainPage from "./main-page";
 
 afterEach(cleanup);
 beforeEach(() => {
-  render(<Root />);
+  render(<MainPage />);
 });
 describe("Root props", () => {
   it.todo("should render properly");
@@ -16,6 +16,6 @@ describe.todo("Root renders conditionally", () => {
 });
 
 it("matches snapshot", () => {
-  const result = render(<Root />);
+  const result = render(<MainPage />);
   expect(result).toMatchInlineSnapshot();
 });
