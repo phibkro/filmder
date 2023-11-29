@@ -54,16 +54,14 @@ nav {
 }
 .carousel {
   display: flex;
-  align-items: center;
-
+  flex-wrap: wrap;
+  justify-content: center;
+  & .card {
+    flex-basis: 100%;
+  }
   & .chevron {
     transition: color 0.25s;
-    @media (orientation: landscape) {
-      height: 10vh;
-    }
-    @media (orientation: portrait) {
-      width: 10vw;
-    }
+    flex-basis: 10%;
   }
 }
 .filmList {
