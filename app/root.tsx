@@ -42,9 +42,9 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <html>
         <head>
-
           <Meta />
           <Links />
+          <title>Filmder</title>
         </head>
         <body>
           <header>
