@@ -1,0 +1,29 @@
+.movie-overview {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  gap: 3em;
+  width: 85vw;
+  @media (orientation: portrait) {
+    flex-direction: column;
+  }
+  & h2 {
+    font-size: 3rem;
+  }
+  & h3 {
+    font-size: 1.5rem;
+  }
+  & section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    & > div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      @media (orientation: portrait) {
+        flex-direction: column;
+      }
+    }
+  }
+}
