@@ -1,3 +1,4 @@
+import type { LinksFunction } from "@remix-run/node";
 import {
   Link,
   Links,
@@ -7,19 +8,15 @@ import {
   Scripts,
 } from "@remix-run/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import type { LinksFunction } from "@remix-run/node";
-
+import { Home } from "lucide-react";
+import { useState } from "react";
+import clapperboard from "./clapperboard.svg";
+import ThemeToggleButton from "./components/ThemeToggleButton";
 import globalStylesHref from "./global.css";
 import overviewStylesHref from "./overview.css";
 import resetStylesHref from "./reset.css";
 import stylesStylesHref from "./styles.css";
 import utilitiesStylesHref from "./utilities.css";
-
-import { useState } from "react";
-import ThemeToggleButton from "./components/ThemeToggleButton";
-import { Home } from "lucide-react";
-
-import clapperboard from "./clapperboard.svg"
 
 export const links: LinksFunction = () => [
   { rel: "icon", href: clapperboard, type: "image/svg" },
@@ -31,13 +28,16 @@ export const links: LinksFunction = () => [
 ];
 
 export default function App() {
-  const [queryClient] = useState(() => new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 60 * 1000,
-      },
-    },
-  }));
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 60 * 1000,
+          },
+        },
+      }),
+  );
   return (
     <QueryClientProvider client={queryClient}>
       <html>
@@ -69,5 +69,3 @@ export default function App() {
     </QueryClientProvider>
   );
 }
-
-

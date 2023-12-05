@@ -1,14 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-
-import MovieApp from "~/components/MovieApp";
-import { getPopularMovies } from "~/api";
-import { json } from "@remix-run/router";
 import { useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/router";
+import { useQuery } from "@tanstack/react-query";
+import { getPopularMovies } from "~/api";
+import MovieApp from "~/components/MovieApp";
 
 export async function loader() {
   const popularMovies = await getPopularMovies();
   return json({ popularMovies });
-
 }
 export default function Index() {
   const { popularMovies } = useLoaderData<typeof loader>();
