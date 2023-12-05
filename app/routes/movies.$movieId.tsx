@@ -4,6 +4,7 @@ import { json } from "@remix-run/router";
 import { getMovieById } from "~/api";
 import Card from "~/components/Card";
 import { createPosterUrl } from "~/utils/lib";
+import { MovieDetails } from "~/utils/types";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const movieDetails = await getMovieById(params.movieId);
@@ -14,7 +15,8 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 };
 
 export default function Overview() {
-  const { movieDetails } = useLoaderData<typeof loader>();
+  const data = useLoaderData<typeof loader>();
+  const movieDetails = data.movieDetails as MovieDetails;
 
   return (
     <>
