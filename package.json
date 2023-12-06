@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "remix dev -c \"node server.mjs\"",
-    "build": "remix build"
+    "build": "remix build",
+    "start": "node server.mjs",
+    "typecheck": "tsc"
   },
   "keywords": [],
   "author": "",
