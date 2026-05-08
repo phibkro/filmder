@@ -13,6 +13,7 @@
     "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
   },
   "dependencies": {
+    "@sentry/react": "^10.52.0",
     "@tanstack/react-query": "^4.33.0",
     "lucide-react": "^0.279.0",
     "react": "^18.2.0",
