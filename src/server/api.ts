@@ -1,29 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
 
+// The production Worker serves both the app and the credential-bearing
+// TMDB proxy. Same-origin requests keep the upstream token out of the
+// browser and avoid a second public deployment surface.
+const TMDB_PROXY = "/api/tmdb";
+
 export async function getPopularMovies() {
-  const response = await fetch("https://api.themoviedb.org/3/movie/popular", {
+  const response = await fetch(`${TMDB_PROXY}/3/movie/popular`, {
     method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: import.meta.env.VITE_API_READ_ACCESS_TOKEN,
-    },
+    headers: { accept: "application/json" },
   });
-  const data = response.json();
-  return data;
+  return response.json();
 }
 export async function getMovieById(movieId: string | undefined) {
   const response = await fetch(
-    "https://api.themoviedb.org/3/movie/" + movieId + "?language=en-US",
+    `${TMDB_PROXY}/3/movie/${movieId}?language=en-US`,
     {
       method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: import.meta.env.VITE_API_READ_ACCESS_TOKEN,
-      },
+      headers: { accept: "application/json" },
     },
   );
-  const data = response.json();
-  return data;
+  return response.json();
 }
 export async function usePopularMovies() {
   return useQuery({

@@ -1,49 +1,37 @@
-import { cleanup, renderHook } from "@testing-library/react";
-import { afterAll, describe, expect, it } from "vitest";
+import { act, renderHook } from "@testing-library/react";
+import { beforeEach, describe, expect, it } from "vitest";
+
 import { useNumberStore } from "./useNumberStore";
 
-const key = "numbers";
-const values = [123456, 654321];
-describe("Number store", () => {
-  afterAll(() => {
+describe("useNumberStore", () => {
+  beforeEach(() => {
     localStorage.clear();
-    cleanup();
   });
 
-  expect(localStorage.getItem(key)).toBe(null);
-  const hook = renderHook(() => useNumberStore(key));
-  const { numberStore, addToStore, clearStore, removeFromStore } =
-    hook.result.current;
+  it("restores, deduplicates, removes, and persists values", () => {
+    localStorage.setItem("favorites", JSON.stringify([11]));
+    const { result } = renderHook(() => useNumberStore("favorites"));
 
-  it("should initialize an empty array", () => {
-    localStorage.clear();
-    expect(localStorage.getItem(key)).toBe(null);
-    const hook = renderHook(() => useNumberStore(key));
-    const { numberStore } = hook.result.current;
-    expect(JSON.parse(localStorage[key])).toEqual([]);
-    expect(numberStore).toEqual([]);
-  });
-  it("updates local state & local storage", () => {
-    addToStore(values[0]);
-    expect(numberStore).toEqual([values[0]]);
-    expect(JSON.parse(localStorage[key])).toEqual([values[0]]);
-    addToStore(values[1]);
-    expect(numberStore).toEqual(values.slice(0, 2));
-    expect(JSON.parse(localStorage[key])).toEqual(values.slice(0, 2));
-  });
-  it("can remove values", () => {
-    removeFromStore(values[0]);
-    expect(numberStore).toEqual([]);
-    expect(JSON.parse(localStorage[key])).toEqual([values[1]]);
-  });
-  it("can clear all values", () => {
-    clearStore();
-    expect(numberStore).toEqual([]);
-    expect(JSON.parse(localStorage[key])).toEqual([]);
-  });
-  const secondResult = renderHook(() => useNumberStore(key));
-  it("is automatically set if key already exists", () => {
-    expect(secondResult.result.current.numberStore).toEqual([]);
-    expect(localStorage.getItem(key)).toBe(key);
+    expect(result.current.numberStore).toEqual([11]);
+
+    act(() => {
+      result.current.addToStore(22);
+    });
+    act(() => {
+      result.current.addToStore(22);
+    });
+    expect(result.current.numberStore).toEqual([11, 22]);
+    expect(localStorage.getItem("favorites")).toBe("[11,22]");
+
+    act(() => {
+      result.current.removeFromStore(11);
+    });
+    expect(result.current.numberStore).toEqual([22]);
+
+    act(() => {
+      result.current.clearStore();
+    });
+    expect(result.current.numberStore).toEqual([]);
+    expect(localStorage.getItem("favorites")).toBe("[]");
   });
 });

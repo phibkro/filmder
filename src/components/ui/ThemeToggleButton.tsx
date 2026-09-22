@@ -1,4 +1,4 @@
-import { useTheme } from "@/features/themeProvider";
+import { useTheme } from "@/features/theme-context";
 import { Moon, Sun } from "lucide-react";
 
 interface Props {

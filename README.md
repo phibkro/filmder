@@ -1,57 +1,75 @@
 # Filmder
 
-## Project description
+Filmder is a React application for browsing movies and saving favorites in the browser.
+The application and its TMDB proxy run in one Cloudflare Worker.
 
-Filmder is a website for browsing and saving your favorite movies.
-It is a project by uni students studying informatics.
+## Architecture
 
-Filmder is a website for matching you with the currently hottest movies. By browsing our movieselection, you will find movies that you will love. When you find a movie that you want to watch later, you can add it to your favourites by clicking on the favourite icon. Then the movie will be saved in your favorite list. To see your favorite movies or hide them from the selection you can select your prefered filter in the dropdown bar. When you have seen the movie, you can then remove it from this list by clicking on the favorite icon again so that the star are no longer black. If you find a movie that you think you might love, but is on the fence of whether to match with it or not, you can always click the movie to get a quick overview of what it is about and how well liked it is.
+- Vite builds the static application.
+- The Worker serves those assets at `filmder.phibkro.org`.
+- The same Worker proxies `GET /api/tmdb/3/*` requests to TMDB.
+- A Cloudflare secret binding keeps the TMDB token out of the browser bundle.
+- A per-client Cloudflare rate limit protects the upstream quota.
 
-This is all done by utilizing modern web technologies like React, TypeScript, Vite, Vitest and TanStack query.
+The proxy rejects other methods and paths.
+It removes upstream cookies before it returns a response.
 
-## How to use this project
+## Local development
 
-1. Clone the repo
-2. Install the dependencies with `npm install`
-3. Rename .env.example to .env and add your own theMovieDB authentication token to VITE_API_READ_ACCESS_TOKEN
-4. To play with the code yourself you can `npm run dev` to start a dev environment and `npm test` to check tests (with coverage)
-5. or you could `npm build` and deploy your own instance of the project
+Copy the environment template and add a TMDB read-access token:
 
-## Testing
+```sh
+cp .env.example .env
+bun install --frozen-lockfile
+bun run dev
+```
 
-We set up the testing environment for the project and created tests for what we thought was relevant to test. While not all tests are completely done yet, we still managed to finish many. We finished snapshot tests for all components. Because the movie overview page depend on data fetched from themoviedb we created mock data in order to not fetch data from the database. As of now most of our components rely on data as props to render and therefore when we test if the component renders we also test the prop. We also have tests for custom hooks and states.
+`TMDB_TOKEN` can contain a raw token or an existing `Bearer <token>` value.
+Alchemy starts the local Worker and serves the built application through it.
 
-## Our choices
+Run all repository checks before a commit:
 
-Originally we were supposed to have a list of favorited movies. Instead we decided to have a dropdown menu to filter the movies below the movie carousel. This way, the users choice wil influence how and which movies are presented.
+```sh
+bun run check
+```
 
-We added an overview page for a chosen movie, so that the user will be able to get specific information about said movie. This is implemented by the user clicking on a movie either in the carousel or the movielist below in the homepage.
+The focused Worker checks cover static assets, path and method restrictions, rate limiting, and credential forwarding.
 
-We implemented system where you click on the star under the movie in order to favorite it. We decided to use localStorage for remembering what movies the user favorited, so the user can close and re-open their webbrowser without losing their favorite movies. This also applies to darkmode and the filtering option. Sessionstorage is therefore not relevant to this project because we wanted the page to remember the users choices after closing and reopening the webbrowser.
+## Production deployment
 
-In order to support mobile devices and standard computer screens we chose to apply a responsive design using media queries and flexbox. This is because most users will access our website through their phones or computers.
+Production changes require operator approval and a Cloudflare profile with Worker access.
+Provision `TMDB_TOKEN` as a Cloudflare secret through Alchemy.
+CI checks the repository but does not deploy it.
 
-## Project- / File structure
+The first plan can bootstrap or upgrade the shared `alchemy-state-store` Worker.
+That is a provider mutation and is part of the required approval.
 
-### Explanations in the same form as the project structure
+```sh
+bun install --frozen-lockfile
+bun run check
+bun run plan
+bun run deploy
+```
 
-- Root of the project contains configuration files for the whole project
-- `index.html` configure metadata here
-  - is technically the main entry point for the application
-- `public/` contains public assets
-- `src/` contains all code for the application
-  - `components/` contains components with more complicated logic
-    - `ui/` contains reusable ui components like buttons and cards
-  - `features/` contains functionality that can't be quite categorized as components, such as themeProvider
-  - `hooks/` contains custom hooks
-  - `layouts/` contains layout components reused by multiple pages
-  - `mock-data/` contains mock data
-  - `pages/` define separate pages in the application
-    - Importantly have the responsibility of data handling and conditional rendering
-  - `server/` contains code relating to data fetching
-  - `styles/` contains styling for all components, layouts & pages
-  - `utils/` contains different utilities
-    - Basically "etc." but for code reused throughout the application
-  - `main.tsx` is the main entry point for our application
-    - Here providers, routing and styles are added to the application
-  - `router.tsx` is where we define our routing
+Inspect the plan before deployment.
+Inspect the built JavaScript and confirm that it does not contain the token.
+
+For the first cutover:
+
+1. Record the current Tunnel, Caddy route, DNS record, and public response.
+2. Remove the `filmder.phibkro.org` Tunnel route or conflicting DNS record immediately before the approved deployment.
+3. Run the deployment and verify the application and TMDB proxy before removing the homelab runtime.
+
+## Rollback
+
+For the first cutover, detach `filmder.phibkro.org` from the Worker.
+Restore the previous DNS record and Tunnel route.
+Keep the homelab runtime until production acceptance completes.
+
+For later releases, use a clean worktree at the last known-good revision.
+Install its lock file, run its checks, inspect `bun run plan`, and run `bun run deploy` after operator approval.
+Do not use `alchemy destroy` as a rollback command.
+
+## Production address
+
+<https://filmder.phibkro.org>
