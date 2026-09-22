@@ -1,6 +1,8 @@
 # Deploy Filmder at the Cloudflare edge
 
 Frozen: yes
+Status: deployed and accepted on 2026-09-22. The homelab runtime retired after production acceptance.
+
 Revision: 2026-09-22. The application and proxy share one Worker. This removes
 a public credential-relay hostname and one deployment resource. Local
 development runs the complete Worker path. The deployment disables the

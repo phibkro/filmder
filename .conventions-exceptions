@@ -1,0 +1,4 @@
+divergences:
+  - key: linter
+    value: existing-eslint-prettier
+    reason: Filmder retains its existing ESLint and Prettier configuration; migrating the established application checks to Oxlint and Oxfmt is separate product work.
