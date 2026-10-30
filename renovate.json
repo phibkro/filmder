@@ -122,6 +122,13 @@
         "renovate",
         "manual-review"
       ]
+    },
+    {
+      "description": "eslint-plugin-react-refresh 0.5 needs ESLint 9 and flat config (CI of #5 failed); this repo is on ESLint 8",
+      "matchPackageNames": [
+        "eslint-plugin-react-refresh"
+      ],
+      "allowedVersions": "<0.5"
     }
   ]
 }
