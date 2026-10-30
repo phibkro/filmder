@@ -29,4 +29,4 @@ flagged as drift by `conventions-check`; record real divergences in
 - Verification: `just check` runs lint, the application build, deployment type checking, and Vitest.
 - Credential boundary: `TMDB_TOKEN` is a local environment value or Cloudflare secret binding. Never expose it through a `VITE_` variable, committed file, build output, log, or browser response.
 - Public contract: `filmder.phibkro.org` serves both the application and same-origin `GET /api/tmdb/3/*` proxy. The homelab does not build, route, or serve it.
-- Deployment: inspect `bun run plan`, then use `bun run deploy` only with operator approval. CI checks; it does not deploy.
+- Deployment: CI deploys stage `production` (`bun run deploy`) after every merge to `main` once the checks pass, when the repository variable `DEPLOYMENTS` is `enabled` (secrets `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` and `TMDB_TOKEN`, environment `production`). A local `bun run deploy` still needs operator approval; inspect `bun run plan` first.
